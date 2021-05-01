@@ -7,109 +7,109 @@
 -- Table: Editeur
 ------------------------------------------------------------
 CREATE TABLE Editeur(
-	Id         NUMBER NOT NULL ,
-	Nom        CLOB  NOT NULL  ,
-	Adresse    CLOB  NOT NULL  ,
-	Telephone  CLOB  NOT NULL  ,
-	CONSTRAINT Editeur_PK PRIMARY KEY (Id)
+	Id_editeur  NUMBER NOT NULL ,
+	Nom         CLOB  NOT NULL  ,
+	Adresse     CLOB  NOT NULL  ,
+	Telephone   CLOB  NOT NULL  ,
+	CONSTRAINT Editeur_PK PRIMARY KEY (Id_editeur)
 );
 
 ------------------------------------------------------------
 -- Table: Personne
 ------------------------------------------------------------
 CREATE TABLE Personne(
-	ID              NUMBER NOT NULL ,
+	Id_personne     NUMBER NOT NULL ,
 	Nom             CLOB  NOT NULL  ,
 	Prenom          CLOB  NOT NULL  ,
 	Date_naissance  DATE  NOT NULL  ,
-	CONSTRAINT Personne_PK PRIMARY KEY (ID)
+	CONSTRAINT Personne_PK PRIMARY KEY (Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Adherent
 ------------------------------------------------------------
 CREATE TABLE Adherent(
-	ID              NUMBER(10,0)  NOT NULL  ,
+	Id_personne     NUMBER(10,0)  NOT NULL  ,
 	Adresse         CLOB  NOT NULL  ,
 	Telephone       CLOB  NOT NULL  ,
 	Nom             CLOB  NOT NULL  ,
 	Prenom          CLOB  NOT NULL  ,
 	Date_naissance  DATE  NOT NULL  ,
-	CONSTRAINT Adherent_PK PRIMARY KEY (ID)
+	CONSTRAINT Adherent_PK PRIMARY KEY (Id_personne)
 
-	,CONSTRAINT Adherent_Personne_FK FOREIGN KEY (ID) REFERENCES Personne(ID)
+	,CONSTRAINT Adherent_Personne_FK FOREIGN KEY (Id_personne) REFERENCES Personne(Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Personnel
 ------------------------------------------------------------
 CREATE TABLE Personnel(
-	ID              NUMBER(10,0)  NOT NULL  ,
+	Id_personne     NUMBER(10,0)  NOT NULL  ,
 	Telephone       CLOB  NOT NULL  ,
 	Nom             CLOB  NOT NULL  ,
 	Prenom          CLOB  NOT NULL  ,
 	Date_naissance  DATE  NOT NULL  ,
-	CONSTRAINT Personnel_PK PRIMARY KEY (ID)
+	CONSTRAINT Personnel_PK PRIMARY KEY (Id_personne)
 
-	,CONSTRAINT Personnel_Personne_FK FOREIGN KEY (ID) REFERENCES Personne(ID)
+	,CONSTRAINT Personnel_Personne_FK FOREIGN KEY (Id_personne) REFERENCES Personne(Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Auteur
 ------------------------------------------------------------
 CREATE TABLE Auteur(
-	ID              NUMBER(10,0)  NOT NULL  ,
+	Id_personne     NUMBER(10,0)  NOT NULL  ,
 	Nationalite     CLOB  NOT NULL  ,
 	Biographie      CLOB  NOT NULL  ,
 	Nom             CLOB  NOT NULL  ,
 	Prenom          CLOB  NOT NULL  ,
 	Date_naissance  DATE  NOT NULL  ,
-	CONSTRAINT Auteur_PK PRIMARY KEY (ID)
+	CONSTRAINT Auteur_PK PRIMARY KEY (Id_personne)
 
-	,CONSTRAINT Auteur_Personne_FK FOREIGN KEY (ID) REFERENCES Personne(ID)
+	,CONSTRAINT Auteur_Personne_FK FOREIGN KEY (Id_personne) REFERENCES Personne(Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Illustrateur
 ------------------------------------------------------------
 CREATE TABLE Illustrateur(
-	ID              NUMBER(10,0)  NOT NULL  ,
+	Id_personne     NUMBER(10,0)  NOT NULL  ,
 	Nationalite     CLOB  NOT NULL  ,
 	Biographie      CLOB  NOT NULL  ,
 	Nom             CLOB  NOT NULL  ,
 	Prenom          CLOB  NOT NULL  ,
 	Date_naissance  DATE  NOT NULL  ,
-	CONSTRAINT Illustrateur_PK PRIMARY KEY (ID)
+	CONSTRAINT Illustrateur_PK PRIMARY KEY (Id_personne)
 
-	,CONSTRAINT Illustrateur_Personne_FK FOREIGN KEY (ID) REFERENCES Personne(ID)
+	,CONSTRAINT Illustrateur_Personne_FK FOREIGN KEY (Id_personne) REFERENCES Personne(Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Emprunt
 ------------------------------------------------------------
 CREATE TABLE Emprunt(
-	Num         NUMBER (10,0) NOT NULL  ,
-	Date_debut  DATE  NOT NULL  ,
-	Date_fin    DATE  NOT NULL  ,
-	Duree       NUMBER(10,0)  NOT NULL  ,
-	Recupere    NUMBER (1) NOT NULL  ,
-	Retourne    NUMBER (1) NOT NULL  ,
-	Nb_livre    NUMBER(10,0)  NOT NULL  ,
-	ID          NUMBER(10,0)   ,
+	Num          NUMBER (10,0) NOT NULL  ,
+	Date_debut   DATE  NOT NULL  ,
+	Date_fin     DATE  NOT NULL  ,
+	Duree        NUMBER(10,0)  NOT NULL  ,
+	Recupere     NUMBER (1) NOT NULL  ,
+	Retourne     NUMBER (1) NOT NULL  ,
+	Nb_livre     NUMBER(10,0)  NOT NULL  ,
+	Id_personne  NUMBER(10,0)   ,
 	CONSTRAINT Emprunt_PK PRIMARY KEY (Num),
 	CONSTRAINT CHK_BOOLEAN_Recupere CHECK (Recupere IN (0,1)),
 	CONSTRAINT CHK_BOOLEAN_Retourne CHECK (Retourne IN (0,1))
 
-	,CONSTRAINT Emprunt_Personnel_FK FOREIGN KEY (ID) REFERENCES Personnel(ID)
+	,CONSTRAINT Emprunt_Personnel_FK FOREIGN KEY (Id_personne) REFERENCES Personnel(Id_personne)
 );
 
 ------------------------------------------------------------
 -- Table: Classification
 ------------------------------------------------------------
 CREATE TABLE Classification(
-	Id       CHAR (5)  NOT NULL  ,
-	Libelle  CLOB  NOT NULL  ,
-	CONSTRAINT Classification_PK PRIMARY KEY (Id)
+	Id_classification  CHAR (5)  NOT NULL  ,
+	Libelle            CLOB  NOT NULL  ,
+	CONSTRAINT Classification_PK PRIMARY KEY (Id_classification)
 );
 
 ------------------------------------------------------------
@@ -117,6 +117,7 @@ CREATE TABLE Classification(
 ------------------------------------------------------------
 CREATE TABLE Ouvrage(
 	ISBN                 NUMBER(10,0)  NOT NULL  ,
+	Titre                CLOB   ,
 	Genre                CLOB   ,
 	Format               CLOB  NOT NULL  ,
 	Langue               CLOB  NOT NULL  ,
@@ -124,25 +125,25 @@ CREATE TABLE Ouvrage(
 	Disponibilite        NUMBER (1) ,
 	Nb_exemplaire_dispo  NUMBER(10,0)   ,
 	Nb_exemplaire_total  NUMBER(10,0)  NOT NULL  ,
-	Id                   NUMBER(10,0)  NOT NULL  ,
-	Id_Classification    CHAR (5)  NOT NULL  ,
+	Id_editeur           NUMBER(10,0)  NOT NULL  ,
+	Id_classification    CHAR (5)  NOT NULL  ,
 	CONSTRAINT Ouvrage_PK PRIMARY KEY (ISBN),
 	CONSTRAINT CHK_BOOLEAN_Disponibilite CHECK (Disponibilite IN (0,1))
 
-	,CONSTRAINT Ouvrage_Editeur_FK FOREIGN KEY (Id) REFERENCES Editeur(Id)
-	,CONSTRAINT Ouvrage_Classification0_FK FOREIGN KEY (Id_Classification) REFERENCES Classification(Id)
+	,CONSTRAINT Ouvrage_Editeur_FK FOREIGN KEY (Id_editeur) REFERENCES Editeur(Id_editeur)
+	,CONSTRAINT Ouvrage_Classification0_FK FOREIGN KEY (Id_classification) REFERENCES Classification(Id_classification)
 );
 
 ------------------------------------------------------------
 -- Table: Emprunter
 ------------------------------------------------------------
 CREATE TABLE Emprunter(
-	ID    NUMBER(10,0)  NOT NULL  ,
-	ISBN  NUMBER(10,0)  NOT NULL  ,
-	Num   NUMBER (10,0) NOT NULL  ,
-	CONSTRAINT Emprunter_PK PRIMARY KEY (ID,ISBN,Num)
+	Id_personne  NUMBER(10,0)  NOT NULL  ,
+	ISBN         NUMBER(10,0)  NOT NULL  ,
+	Num          NUMBER (10,0) NOT NULL  ,
+	CONSTRAINT Emprunter_PK PRIMARY KEY (Id_personne,ISBN,Num)
 
-	,CONSTRAINT Emprunter_Adherent_FK FOREIGN KEY (ID) REFERENCES Adherent(ID)
+	,CONSTRAINT Emprunter_Adherent_FK FOREIGN KEY (Id_personne) REFERENCES Adherent(Id_personne)
 	,CONSTRAINT Emprunter_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
 	,CONSTRAINT Emprunter_Emprunt1_FK FOREIGN KEY (Num) REFERENCES Emprunt(Num)
 );
@@ -151,11 +152,11 @@ CREATE TABLE Emprunter(
 -- Table: Ecrire
 ------------------------------------------------------------
 CREATE TABLE Ecrire(
-	ID    NUMBER(10,0)  NOT NULL  ,
-	ISBN  NUMBER(10,0)  NOT NULL  ,
-	CONSTRAINT Ecrire_PK PRIMARY KEY (ID,ISBN)
+	Id_personne  NUMBER(10,0)  NOT NULL  ,
+	ISBN         NUMBER(10,0)  NOT NULL  ,
+	CONSTRAINT Ecrire_PK PRIMARY KEY (Id_personne,ISBN)
 
-	,CONSTRAINT Ecrire_Auteur_FK FOREIGN KEY (ID) REFERENCES Auteur(ID)
+	,CONSTRAINT Ecrire_Auteur_FK FOREIGN KEY (Id_personne) REFERENCES Auteur(Id_personne)
 	,CONSTRAINT Ecrire_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
 );
 
@@ -163,11 +164,11 @@ CREATE TABLE Ecrire(
 -- Table: Illustrer
 ------------------------------------------------------------
 CREATE TABLE Illustrer(
-	ID    NUMBER(10,0)  NOT NULL  ,
-	ISBN  NUMBER(10,0)  NOT NULL  ,
-	CONSTRAINT Illustrer_PK PRIMARY KEY (ID,ISBN)
+	Id_personne  NUMBER(10,0)  NOT NULL  ,
+	ISBN         NUMBER(10,0)  NOT NULL  ,
+	CONSTRAINT Illustrer_PK PRIMARY KEY (Id_personne,ISBN)
 
-	,CONSTRAINT Illustrer_Illustrateur_FK FOREIGN KEY (ID) REFERENCES Illustrateur(ID)
+	,CONSTRAINT Illustrer_Illustrateur_FK FOREIGN KEY (Id_personne) REFERENCES Illustrateur(Id_personne)
 	,CONSTRAINT Illustrer_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
 );
 
@@ -175,20 +176,19 @@ CREATE TABLE Illustrer(
 
 
 
-CREATE SEQUENCE Seq_Editeur_Id START WITH 1 INCREMENT BY 1 NOCYCLE;
-CREATE SEQUENCE Seq_Personne_ID START WITH 1 INCREMENT BY 1 NOCYCLE;
+CREATE SEQUENCE Seq_Editeur_Id_editeur START WITH 1 INCREMENT BY 1 NOCYCLE;
+CREATE SEQUENCE Seq_Personne_Id_personne START WITH 1 INCREMENT BY 1 NOCYCLE;
 
 
-CREATE OR REPLACE TRIGGER Editeur_Id
+CREATE OR REPLACE TRIGGER Editeur_Id_editeur
 	BEFORE INSERT ON Editeur 
   FOR EACH ROW 
-	WHEN (NEW.Id IS NULL) 
+	WHEN (NEW.Id_editeur IS NULL) 
 	BEGIN
-		 select Seq_Editeur_Id.NEXTVAL INTO :NEW.Id from DUAL; 
+		 select Seq_Editeur_Id_editeur.NEXTVAL INTO :NEW.Id_editeur from DUAL; 
 	END;
-CREATE OR REPLACE TRIGGER Personne_ID
+CREATE OR REPLACE TRIGGER Personne_Id_personne
 	BEFORE INSERT ON Personne 
-  FOR EACH ROW 
 
 
 
