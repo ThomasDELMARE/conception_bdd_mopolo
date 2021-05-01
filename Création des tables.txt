@@ -116,7 +116,7 @@ CREATE TABLE Classification(
 -- Table: Ouvrage
 ------------------------------------------------------------
 CREATE TABLE Ouvrage(
-	ISBN                 NUMBER(10,0)  NOT NULL  ,
+	ISBN                 CLOB  NOT NULL  ,
 	Titre                CLOB   ,
 	Genre                CLOB   ,
 	Format               CLOB  NOT NULL  ,
@@ -139,7 +139,7 @@ CREATE TABLE Ouvrage(
 ------------------------------------------------------------
 CREATE TABLE Emprunter(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         NUMBER(10,0)  NOT NULL  ,
+	ISBN         CLOB  NOT NULL  ,
 	Num          NUMBER (10,0) NOT NULL  ,
 	CONSTRAINT Emprunter_PK PRIMARY KEY (Id_personne,ISBN,Num)
 
@@ -153,7 +153,7 @@ CREATE TABLE Emprunter(
 ------------------------------------------------------------
 CREATE TABLE Ecrire(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         NUMBER(10,0)  NOT NULL  ,
+	ISBN         CLOB  NOT NULL  ,
 	CONSTRAINT Ecrire_PK PRIMARY KEY (Id_personne,ISBN)
 
 	,CONSTRAINT Ecrire_Auteur_FK FOREIGN KEY (Id_personne) REFERENCES Auteur(Id_personne)
@@ -165,7 +165,7 @@ CREATE TABLE Ecrire(
 ------------------------------------------------------------
 CREATE TABLE Illustrer(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         NUMBER(10,0)  NOT NULL  ,
+	ISBN         CLOB  NOT NULL  ,
 	CONSTRAINT Illustrer_PK PRIMARY KEY (Id_personne,ISBN)
 
 	,CONSTRAINT Illustrer_Illustrateur_FK FOREIGN KEY (Id_personne) REFERENCES Illustrateur(Id_personne)
