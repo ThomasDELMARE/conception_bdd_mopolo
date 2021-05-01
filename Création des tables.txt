@@ -124,7 +124,7 @@ CREATE TABLE Ouvrage(
 	Date_parution        DATE  NOT NULL  ,
 	Disponibilite        NUMBER (1) ,
 	Nb_exemplaire_dispo  NUMBER(10,0)   ,
-	Nb_exemplaire_total  NUMBER(10,0)  NOT NULL  ,
+	Nb_exemplaire_total  NUMBER(10,0)   ,
 	Id_editeur           NUMBER(10,0)  NOT NULL  ,
 	Id_classification    CHAR (5)  NOT NULL  ,
 	CONSTRAINT Ouvrage_PK PRIMARY KEY (Id_ouvrage),

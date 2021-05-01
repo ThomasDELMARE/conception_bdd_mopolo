@@ -2,7 +2,7 @@
 /* Basé sur le système de classification de la bibliothèque du Congrès */
 
 /* CLASSIFICATION */
-INSERT INTO classification VALUES ( 'A', 'OUVRAGES GÉNÉRAUX');
+INSERT INTO classification VALUES ( 'A', 'Ouvrages généraux');
 INSERT INTO classification VALUES ( 'AE', 'Encyclopédies générales');
 INSERT INTO classification VALUES ( 'AG', 'Dictionnaires et ouvrages de référence généraux');
 INSERT INTO classification VALUES ( 'AI ', 'Index généraux');
@@ -15,7 +15,6 @@ INSERT INTO classification VALUES ( 'AAZ ', 'Histoire générale du savoir');
 
 
 
-INSERT INTO classification VALUES ( 'B', 'PHILOSOPHIE, PSYCHOLOGIE, RELIGION');
 INSERT INTO classification VALUES ( 'B', 'Collections - Histoire - Systèmes - Oeuvres philosophiques Logique');
 INSERT INTO classification VALUES ( 'BC', 'Philosophie spéculative');
 INSERT INTO classification VALUES ( 'BD', 'Psychologie');
@@ -31,7 +30,7 @@ INSERT INTO classification VALUES ( 'BT', 'Œcuménisme - Églises orthodoxes, c
 INSERT INTO classification VALUES ( 'BX', 'Autres oeuvres religieuses');
 
 
-INSERT INTO classification VALUES ( 'C', 'SCIENCES AUXILIAIRES DE L''HISTOIRE');
+INSERT INTO classification VALUES ( 'C', 'Sciences auxiliaires de l''histoire');
 INSERT INTO classification VALUES ( 'CB', 'Histoire de la civilisation et de la culture');
 INSERT INTO classification VALUES ( 'CC', 'Archéologie');
 INSERT INTO classification VALUES ( 'CD', 'Diplomatique - Archivistique');
@@ -43,40 +42,36 @@ INSERT INTO classification VALUES ( 'CT', 'Biographies d''ordre général');
 
 
 
-INSERT INTO classification VALUES ( 'D', 'HISTOIRE (sauf Amérique)');
-INSERT INTO classification VALUES ( 'D', 'Histoire générale');
-INSERT INTO classification VALUES ( 'DA', 'Grande-Bretagne');
-INSERT INTO classification VALUES ( 'DAW', 'Europe centrale en général');
-INSERT INTO classification VALUES ( 'DB', 'Autriche - République tchèque - Slovaquie - Hongrie');
-INSERT INTO classification VALUES ( 'DC', 'France');
-INSERT INTO classification VALUES ( 'DD', 'Allemagne');
-INSERT INTO classification VALUES ( 'DE', 'Antiquité classique');
-INSERT INTO classification VALUES ( 'DF', 'Grèce');
-INSERT INTO classification VALUES ( 'DG', 'Italie');
-INSERT INTO classification VALUES ( 'DH - DJ', 'Belgique - Pays-Bas - Luxembourg');
-INSERT INTO classification VALUES ( 'DJK', 'Europe de l''Est en général');
-INSERT INTO classification VALUES ( 'DK', 'Russie et autres pays de la CEI (ex. URSS) - Pologne');
-INSERT INTO classification VALUES ( 'DL', 'Scandinavie');
-INSERT INTO classification VALUES ( 'DP', 'Espagne - Portugal');
-INSERT INTO classification VALUES ( 'DQ', 'Suisse');
-INSERT INTO classification VALUES ( 'DR', 'Pays balkaniques');
-INSERT INTO classification VALUES ( 'DS', 'Asie');
-INSERT INTO classification VALUES ( 'DT', 'Afrique');
-INSERT INTO classification VALUES ( 'DU', 'Australie - Océanie');
+INSERT INTO classification VALUES ( 'D', 'Histoire générale (sauf Amérique)');
+INSERT INTO classification VALUES ( 'DA', 'Histoire de la Grande-Bretagne');
+INSERT INTO classification VALUES ( 'DAW', 'Histoire de l''Europe centrale en général');
+INSERT INTO classification VALUES ( 'DB', 'Histoire de l''Autriche - République tchèque - Slovaquie - Hongrie');
+INSERT INTO classification VALUES ( 'DC', 'Histoire de la France');
+INSERT INTO classification VALUES ( 'DD', 'Histoire de l''Allemagne');
+INSERT INTO classification VALUES ( 'DE', 'Histoire de l''Antiquité classique');
+INSERT INTO classification VALUES ( 'DF', 'Histoire de la Grèce');
+INSERT INTO classification VALUES ( 'DG', 'Histoire de l''Italie');
+INSERT INTO classification VALUES ( 'DH - DJ', 'Histoire de la Belgique - Pays-Bas - Luxembourg');
+INSERT INTO classification VALUES ( 'DJK', 'Histoire de l''Europe de l''Est en général');
+INSERT INTO classification VALUES ( 'DK', 'Histoire de la Russie et autres pays de la CEI (ex. URSS) - Pologne');
+INSERT INTO classification VALUES ( 'DL', 'Histoire de la Scandinavie');
+INSERT INTO classification VALUES ( 'DP', 'Histoire de l''Espagne - Portugal');
+INSERT INTO classification VALUES ( 'DQ', 'Histoire de la Suisse');
+INSERT INTO classification VALUES ( 'DR', 'Histoire des Pays balkaniques');
+INSERT INTO classification VALUES ( 'DS', 'Histoire de l''Asie');
+INSERT INTO classification VALUES ( 'DT', 'Histoire de l''Afrique');
+INSERT INTO classification VALUES ( 'DU', 'Histoire de l''Australie - Océanie');
 
 
 
-INSERT INTO classification VALUES ( 'E-F', 'HISTOIRE DE L''AMÉRIQUE');
-INSERT INTO classification VALUES ( 'E 1-141', 'Amérique');
-INSERT INTO classification VALUES ( 'E 151', 'États-Unis (Histoire générale)');
-INSERT INTO classification VALUES ( 'F1 - 975', 'États-Unis (Histoire locale)');
-INSERT INTO classification VALUES ( 'F1201 - 1392', 'Mexique');
-INSERT INTO classification VALUES ( 'F1401 - 3799', 'Amérique du Sud - Amérique centrale - Caraïbes');
-INSERT INTO classification VALUES ( 'F 5000', 'Canada - Québec - Autres provinces');
+INSERT INTO classification VALUES ( 'E 1-141', 'Histoire de l''Amérique');
+INSERT INTO classification VALUES ( 'E 151', 'Histoire des États-Unis (Histoire générale)');
+INSERT INTO classification VALUES ( 'F1 - 975', 'Histoire des États-Unis (Histoire locale)');
+INSERT INTO classification VALUES ( 'F1201 - 1392', 'Histoire du Mexique');
+INSERT INTO classification VALUES ( 'F1401 - 3799', 'Histoire de l''Amérique du Sud - Amérique centrale - Caraïbes');
+INSERT INTO classification VALUES ( 'F 5000', 'Histoire du Canada - Québec - Autres provinces');
 
 
-
-INSERT INTO classification VALUES ( 'G', 'GÉOGRAPHIE, ANTHROPOLOGIE, LOISIRS');
 INSERT INTO classification VALUES ( 'GA', 'Géographie mathématique - Cartographie');
 INSERT INTO classification VALUES ( 'GB', 'Géographie physique - Géomorphologie');
 INSERT INTO classification VALUES ( 'GC', 'Océanographie');
@@ -88,8 +83,6 @@ INSERT INTO classification VALUES ( 'GV', 'Loisirs - Sports - Éducation physiqu
 INSERT INTO classification VALUES ( 'GV1580 - 1799', 'Danse');
 
 
-
-INSERT INTO classification VALUES ( 'H', 'SCIENCES SOCIALES ET ADMINISTRATIVES');
 INSERT INTO classification VALUES ( 'H', 'Sciences sociales en général');
 INSERT INTO classification VALUES ( 'HA', 'Statistiques');
 INSERT INTO classification VALUES ( 'HB', 'Théories économiques - Population - Démographie');
@@ -113,8 +106,8 @@ INSERT INTO classification VALUES ( 'HV', 'Travail social - Criminologie');
 INSERT INTO classification VALUES ( 'HX', 'Socialisme - Communisme - Anarchisme');
 
 
-INSERT INTO classification VALUES ( 'J', 'SCIENCE POLITIQUE');
-INSERT INTO classification VALUES ( 'JA', 'Ouvrages généraux');
+
+INSERT INTO classification VALUES ( 'JA', 'Science politique - Ouvrages généraux');
 INSERT INTO classification VALUES ( 'JC', 'Théories de l''État');
 INSERT INTO classification VALUES ( 'JF - JQ', 'Histoire constitutionnelle - Administration');
 INSERT INTO classification VALUES ( 'JK', 'États-Unis');
@@ -126,32 +119,26 @@ INSERT INTO classification VALUES ( 'JX', 'Colonies et colonisation - Émigratio
 
 
 
-INSERT INTO classification VALUES ( 'K', 'DROIT');
 INSERT INTO classification VALUES ( 'K', 'Droit comparé');
-INSERT INTO classification VALUES ( 'KD', 'Grande-Bretagne');
-INSERT INTO classification VALUES ( 'KE', 'Canada');
-INSERT INTO classification VALUES ( 'KF', 'États-Unis');
-INSERT INTO classification VALUES ( 'KJ - KKZ', 'Europe');
-INSERT INTO classification VALUES ( 'KJV', 'France');
-INSERT INTO classification VALUES ( 'KK - KKC', 'Allemagne');
+INSERT INTO classification VALUES ( 'KD', 'Droit - Grande-Bretagne');
+INSERT INTO classification VALUES ( 'KE', 'Droit - Canada');
+INSERT INTO classification VALUES ( 'KF', 'Droit - États-Unis');
+INSERT INTO classification VALUES ( 'KJ - KKZ', 'Droit - Europe');
+INSERT INTO classification VALUES ( 'KJV', 'Droit - France');
+INSERT INTO classification VALUES ( 'KK - KKC', 'Droit - Allemagne');
 
-
-
-INSERT INTO classification VALUES ( 'L', 'ÉDUCATION');
-INSERT INTO classification VALUES ( 'L', 'Ouvrages généraux');
+INSERT INTO classification VALUES ( 'L', 'Éducation - Ouvrages généraux');
 INSERT INTO classification VALUES ( 'LA', 'Histoire de l éducation');
 INSERT INTO classification VALUES ( 'LB', 'Théorie et pratique');
 INSERT INTO classification VALUES ( 'LT', 'Manuels scolaires');
 
 
 
-INSERT INTO classification VALUES ( 'M', 'MUSIQUE');
 INSERT INTO classification VALUES ( 'M', 'Musique (partitions et enregistrements)');
 INSERT INTO classification VALUES ( 'ML', 'Ouvrages sur la musique');
 INSERT INTO classification VALUES ( 'MT', 'Enseignement et étude de la musique');
 
 
-INSERT INTO classification VALUES ( 'N', 'BEAUX-ARTS');
 INSERT INTO classification VALUES ( 'N', 'Arts visuels');
 INSERT INTO classification VALUES ( 'NA', 'Architecture');
 INSERT INTO classification VALUES ( 'NB', 'Sculpture');
@@ -163,8 +150,7 @@ INSERT INTO classification VALUES ( 'NX', 'Arts en général');
 
 
 
-INSERT INTO classification VALUES ( 'P', 'LINGUISTIQUE ET LITTÉRATURE');
-INSERT INTO classification VALUES ( 'P', 'Philologie comparée');
+INSERT INTO classification VALUES ( 'P', 'Linguistique et littérature - Philologie comparée');
 INSERT INTO classification VALUES ( 'PA', 'Langues et littératures classiques (grecque et latine)');
 INSERT INTO classification VALUES ( 'PB', 'Langues modernes');
 INSERT INTO classification VALUES ( 'PC', 'Langues romanes');
@@ -184,8 +170,7 @@ INSERT INTO classification VALUES ( 'PT', 'Littératures allemande, néerlandais
 INSERT INTO classification VALUES ( 'PZ', 'Littérature enfantine');
 
 
-INSERT INTO classification VALUES ( 'Q', 'SCIENCES');
-INSERT INTO classification VALUES ( 'Q', 'Généralités - Histoire des sciences');
+INSERT INTO classification VALUES ( 'Q', 'Sciences - Généralités - Histoire des sciences');
 INSERT INTO classification VALUES ( 'Q 300 - 385 QA', 'Cybernétique');
 INSERT INTO classification VALUES ( 'QA 75 - 76', 'Mathématiques');
 INSERT INTO classification VALUES ( 'QB', 'Informatique');
@@ -206,8 +191,7 @@ INSERT INTO classification VALUES ( 'QP', 'Anatomie - Histologie et embryologie 
 INSERT INTO classification VALUES ( 'QR', 'Physiologie');
 
 
-INSERT INTO classification VALUES ( 'R', 'MÉDECINE');
-INSERT INTO classification VALUES ( 'R', 'Généralités');
+INSERT INTO classification VALUES ( 'R', 'Médecine - généralités');
 INSERT INTO classification VALUES ( 'RA', 'Aspect social de la médecine - Santé publique');
 INSERT INTO classification VALUES ( 'RB', 'Pathologie');
 INSERT INTO classification VALUES ( 'RC', 'Médecine interne et thérapeutique - Neurologie et psychiatrie');
@@ -221,7 +205,6 @@ INSERT INTO classification VALUES ( 'RS', 'Pharmacie');
 INSERT INTO classification VALUES ( 'RT', 'Soins infirmiers');
 
 
-INSERT INTO classification VALUES ( 'S', 'AGRICULTURE');
 INSERT INTO classification VALUES ( 'S', 'Agriculture en général');
 INSERT INTO classification VALUES ( 'S 900', 'Conservation des ressources naturelles');
 INSERT INTO classification VALUES ( 'SB', 'Culture et maladies des plantes');
@@ -230,8 +213,7 @@ INSERT INTO classification VALUES ( 'SF', 'Élevage - Médecine vétérinaire');
 INSERT INTO classification VALUES ( 'SH', 'Aquiculture - Pêche');
 
 
-INSERT INTO classification VALUES ( 'T', 'TECHNOLOGIE');
-INSERT INTO classification VALUES ( 'T', 'Généralités - Organisation scientifique du travail');
+INSERT INTO classification VALUES ( 'T', 'Technologie - Généralités - Organisation scientifique du travail');
 INSERT INTO classification VALUES ( 'TA', 'Génie civil');
 INSERT INTO classification VALUES ( 'TC', 'Génie hydraulique');
 INSERT INTO classification VALUES ( 'TD', 'Technologie de l''environnement - Pollution de l''environnement Génie mécanique');
@@ -244,8 +226,6 @@ INSERT INTO classification VALUES ( 'TR', 'Manufactures et technologie manufactu
 INSERT INTO classification VALUES ( 'TS', 'Artisanat - Économie domestique');
 
 
-
-INSERT INTO classification VALUES ( 'U', 'SCIENCES MILITAIRES');
 INSERT INTO classification VALUES ( 'U', 'Sciences militaires en général');
 INSERT INTO classification VALUES ( 'UA', 'Armées');
 INSERT INTO classification VALUES ( 'UB', 'Administration militaire');
@@ -256,10 +236,10 @@ INSERT INTO classification VALUES ( 'UF', 'Artillerie');
 INSERT INTO classification VALUES ( 'UG', 'Armées de l''air');
 INSERT INTO classification VALUES ( 'UH', 'Autres');
 
-INSERT INTO classification VALUES ( 'V', 'SCIENCES NAVALES');
+INSERT INTO classification VALUES ( 'V', 'Sciences navales');
 
 
-INSERT INTO classification VALUES ( 'Z', 'BIBLIOGRAPHIE- BIBLIOTHÉCONOMIE- SOURCES D''INFORMATIONS');
+INSERT INTO classification VALUES ( 'Z', 'Bibliographie - Bibliothéconomie - Sources d''informations');
 
 
 /* ADHERENT */
@@ -352,7 +332,7 @@ INSERT INTO editeur VALUES ( 'Editis', '25 rue Guibert', '02 32 81 81 05');
 
 INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Française', '2019-04-04', true, 1, 3);
 INSERT INTO ouvrage VALUES ( '2-86967-579-8', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2);
-INSERT INTO ouvrage VALUES ( '1133-0686', 'TEST', 'Journal', );
+INSERT INTO ouvrage VALUES ( '1863-8260', 'TEST', 'Journal', 'Numérique', 'Anglais', '1992-01-01', true);
 INSERT INTO ouvrage VALUES ();
 INSERT INTO ouvrage VALUES ();
 INSERT INTO ouvrage VALUES ();
