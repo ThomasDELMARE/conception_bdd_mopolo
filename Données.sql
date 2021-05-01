@@ -348,6 +348,24 @@ INSERT INTO editeur VALUES ( 'Editis', '25 rue Guibert', '02 32 81 81 05');
 
 /* OUVRAGE */
 /* ISBN (int), Titre, genre, format, langue, date_parution, disponibilite, nb exemplaire dispo, nb exemplaire total */
+/* Format peut etre broché, relié ou numérique */ 
 
-INSERT INTO ouvrage VALUES ( '9782340016606', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Française', '2019-04-04', true, 1, 3);
-INSERT INTO ouvrage VALUES ('2913981186', 'Comédie', '
+INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Française', '2019-04-04', true, 1, 3);
+INSERT INTO ouvrage VALUES ( '2-86967-579-8', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2);
+INSERT INTO ouvrage VALUES ( '1133-0686', 'TEST', 'Journal', );
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ();
+
+
+
+
+
+
+
+
+

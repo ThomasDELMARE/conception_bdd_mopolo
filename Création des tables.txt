@@ -116,7 +116,7 @@ CREATE TABLE Classification(
 -- Table: Ouvrage
 ------------------------------------------------------------
 CREATE TABLE Ouvrage(
-	ISBN                 CLOB  NOT NULL  ,
+	Id_ouvrage           CLOB  NOT NULL  ,
 	Titre                CLOB   ,
 	Genre                CLOB   ,
 	Format               CLOB  NOT NULL  ,
@@ -127,7 +127,7 @@ CREATE TABLE Ouvrage(
 	Nb_exemplaire_total  NUMBER(10,0)  NOT NULL  ,
 	Id_editeur           NUMBER(10,0)  NOT NULL  ,
 	Id_classification    CHAR (5)  NOT NULL  ,
-	CONSTRAINT Ouvrage_PK PRIMARY KEY (ISBN),
+	CONSTRAINT Ouvrage_PK PRIMARY KEY (Id_ouvrage),
 	CONSTRAINT CHK_BOOLEAN_Disponibilite CHECK (Disponibilite IN (0,1))
 
 	,CONSTRAINT Ouvrage_Editeur_FK FOREIGN KEY (Id_editeur) REFERENCES Editeur(Id_editeur)
@@ -139,12 +139,12 @@ CREATE TABLE Ouvrage(
 ------------------------------------------------------------
 CREATE TABLE Emprunter(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         CLOB  NOT NULL  ,
+	Id_ouvrage   CLOB  NOT NULL  ,
 	Num          NUMBER (10,0) NOT NULL  ,
-	CONSTRAINT Emprunter_PK PRIMARY KEY (Id_personne,ISBN,Num)
+	CONSTRAINT Emprunter_PK PRIMARY KEY (Id_personne,Id_ouvrage,Num)
 
 	,CONSTRAINT Emprunter_Adherent_FK FOREIGN KEY (Id_personne) REFERENCES Adherent(Id_personne)
-	,CONSTRAINT Emprunter_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
+	,CONSTRAINT Emprunter_Ouvrage0_FK FOREIGN KEY (Id_ouvrage) REFERENCES Ouvrage(Id_ouvrage)
 	,CONSTRAINT Emprunter_Emprunt1_FK FOREIGN KEY (Num) REFERENCES Emprunt(Num)
 );
 
@@ -153,11 +153,11 @@ CREATE TABLE Emprunter(
 ------------------------------------------------------------
 CREATE TABLE Ecrire(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         CLOB  NOT NULL  ,
-	CONSTRAINT Ecrire_PK PRIMARY KEY (Id_personne,ISBN)
+	Id_ouvrage   CLOB  NOT NULL  ,
+	CONSTRAINT Ecrire_PK PRIMARY KEY (Id_personne,Id_ouvrage)
 
 	,CONSTRAINT Ecrire_Auteur_FK FOREIGN KEY (Id_personne) REFERENCES Auteur(Id_personne)
-	,CONSTRAINT Ecrire_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
+	,CONSTRAINT Ecrire_Ouvrage0_FK FOREIGN KEY (Id_ouvrage) REFERENCES Ouvrage(Id_ouvrage)
 );
 
 ------------------------------------------------------------
@@ -165,11 +165,11 @@ CREATE TABLE Ecrire(
 ------------------------------------------------------------
 CREATE TABLE Illustrer(
 	Id_personne  NUMBER(10,0)  NOT NULL  ,
-	ISBN         CLOB  NOT NULL  ,
-	CONSTRAINT Illustrer_PK PRIMARY KEY (Id_personne,ISBN)
+	Id_ouvrage   CLOB  NOT NULL  ,
+	CONSTRAINT Illustrer_PK PRIMARY KEY (Id_personne,Id_ouvrage)
 
 	,CONSTRAINT Illustrer_Illustrateur_FK FOREIGN KEY (Id_personne) REFERENCES Illustrateur(Id_personne)
-	,CONSTRAINT Illustrer_Ouvrage0_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
+	,CONSTRAINT Illustrer_Ouvrage0_FK FOREIGN KEY (Id_ouvrage) REFERENCES Ouvrage(Id_ouvrage)
 );
 
 
