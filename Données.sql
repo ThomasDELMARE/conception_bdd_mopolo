@@ -330,16 +330,16 @@ INSERT INTO editeur VALUES ( 'Editis', '25 rue Guibert', '02 32 81 81 05');
 /* ISBN (int), Titre, genre, format, langue, date_parution, disponibilite, nb exemplaire dispo, nb exemplaire total */
 /* Format peut etre broché, relié ou numérique */ 
 
-INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Française', '2019-04-04', true, 1, 3);
+INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Français', '2019-04-04', true, 1, 3);
 INSERT INTO ouvrage VALUES ( '2-86967-579-8', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2);
 INSERT INTO ouvrage VALUES ( '1863-8260', 'TEST', 'Journal', 'Numérique', 'Anglais', '1992-01-01', true);
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
-INSERT INTO ouvrage VALUES ();
+INSERT INTO ouvrage VALUES ( '9782340034648', 'Le TOEIC® en 49 étapes. Conforme aux dernières évolutions du test', 'Numérique', 'Français', '2019-01-01', true);
+INSERT INTO ouvrage VALUES ( '2-279-41041-9', 'Roumanie', 'Roman', 'Broché', 'Français', '1994-01-01', true, 1, 5);
+INSERT INTO ouvrage VALUES ( '978-2-913927-65-0', 'Apiculture biodynamique : vers une pratique respectueuse de l abeille', 'Revue', 'Relié', 'Français', '2018-01-01', false, 0, 1);
+INSERT INTO ouvrage VALUES ( '978-2-227-48339-2', 'Voir les jeux vidéo : perception, construction, fiction', 'Revue', 'Broché', 'Français', '2012-01-01', true, 1, 1);
+INSERT INTO ouvrage VALUES ( '978-2-13060-371-9', 'Les écoutes téléphoniques', 'E-book', 'Numérique', 'Français', '2010-01-01', true);
+INSERT INTO ouvrage VALUES ( '978-2-247-19148-2', 'Intelligence artificielle', 'E-book', 'Numérique', 'Français', '2019-01-01', true);
+INSERT INTO ouvrage VALUES ( '1767-4883', 'L Essentiel de la Moto', 'Journal', 'Numérique', 'Français', '2011-01-01', true);
 
 
 
