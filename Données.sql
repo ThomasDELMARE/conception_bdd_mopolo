@@ -272,16 +272,16 @@ INSERT INTO auteur VALUES ( 'Tchèque', 'Milan Kundera nait en 1929 en Moravie, 
 
 /* EMPRUNT */
 
-INSERT INTO emprunt VALUES ( 1, '2019-05-14', '2019-05-19', 6, true, false, 6);
-INSERT INTO emprunt VALUES ( 2, '2018-06-19', '2018-06-24', 6, true, true, 2);
-INSERT INTO emprunt VALUES ( 3, '2020-06-30', '2020-07-8', 9, false, false, 8);
-INSERT INTO emprunt VALUES ( 4, '2017-11-12', '2017-11-14', 3, true, true, 7);
-INSERT INTO emprunt VALUES ( 5, '2016-02-10', '2016-02-17', 8, true, true, 1);
-INSERT INTO emprunt VALUES ( 6, '2017-01-04', '2017-01-06', 3, true, false, 4);
-INSERT INTO emprunt VALUES ( 7, '2014-02-02', '2014-02-15', 14, false, false, 2);
-INSERT INTO emprunt VALUES ( 8, '2013-01-01', '2013-01-18', 19, true, true, 5);
-INSERT INTO emprunt VALUES ( 9, '2012-05-05', '2012-05-11', 7, false, false, 3);
-INSERT INTO emprunt VALUES ( 10, '2019-06-17', '2019-06-19', 3, true, true, 1);
+INSERT INTO emprunt VALUES ( 1, '2019-05-14', '2019-05-19', 6, true, false, 1, 1);
+INSERT INTO emprunt VALUES ( 2, '2018-06-19', '2018-06-24', 6, true, true, 2, 2);
+INSERT INTO emprunt VALUES ( 3, '2020-06-30', '2020-07-8', 9, false, false, 2, 3);
+INSERT INTO emprunt VALUES ( 4, '2017-11-12', '2017-11-14', 3, true, true, 1, 4);
+INSERT INTO emprunt VALUES ( 5, '2016-02-10', '2016-02-17', 8, true, true, 1, 5);
+INSERT INTO emprunt VALUES ( 6, '2017-01-04', '2017-01-06', 3, true, false, 1, 6);
+INSERT INTO emprunt VALUES ( 7, '2014-02-02', '2014-02-15', 14, false, false, 2, 7);
+INSERT INTO emprunt VALUES ( 8, '2013-01-01', '2013-01-18', 19, true, true, 1, 8);
+INSERT INTO emprunt VALUES ( 9, '2012-05-05', '2012-05-11', 7, false, false, 3, 9);
+INSERT INTO emprunt VALUES ( 10, '2019-06-17', '2019-06-19', 3, true, true, 1, 10);
 
 
 /* PERSONNEL */
@@ -327,20 +327,71 @@ INSERT INTO editeur VALUES ( 'Editis', '25 rue Guibert', '02 32 81 81 05');
 
 
 /* OUVRAGE */
-/* ISBN (int), Titre, genre, format, langue, date_parution, disponibilite, nb exemplaire dispo, nb exemplaire total */
+/* ISBN (int), Titre, genre, format, langue, date_parution, disponibilite, nb exemplaire dispo, nb exemplaire total, id editeur, id classification */
 /* Format peut etre broché, relié ou numérique */ 
 
-INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman','Policier', 'AI', 'Français', '2019-04-04', true, 1, 3);
-INSERT INTO ouvrage VALUES ( '2-86967-579-8', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2);
-INSERT INTO ouvrage VALUES ( '1863-8260', 'TEST', 'Journal', 'Numérique', 'Anglais', '1992-01-01', true);
-INSERT INTO ouvrage VALUES ( '9782340034648', 'Le TOEIC® en 49 étapes. Conforme aux dernières évolutions du test', 'Numérique', 'Français', '2019-01-01', true);
-INSERT INTO ouvrage VALUES ( '2-279-41041-9', 'Roumanie', 'Roman', 'Broché', 'Français', '1994-01-01', true, 1, 5);
-INSERT INTO ouvrage VALUES ( '978-2-913927-65-0', 'Apiculture biodynamique : vers une pratique respectueuse de l abeille', 'Revue', 'Relié', 'Français', '2018-01-01', false, 0, 1);
-INSERT INTO ouvrage VALUES ( '978-2-227-48339-2', 'Voir les jeux vidéo : perception, construction, fiction', 'Revue', 'Broché', 'Français', '2012-01-01', true, 1, 1);
-INSERT INTO ouvrage VALUES ( '978-2-13060-371-9', 'Les écoutes téléphoniques', 'E-book', 'Numérique', 'Français', '2010-01-01', true);
-INSERT INTO ouvrage VALUES ( '978-2-247-19148-2', 'Intelligence artificielle', 'E-book', 'Numérique', 'Français', '2019-01-01', true);
-INSERT INTO ouvrage VALUES ( '1767-4883', 'L Essentiel de la Moto', 'Journal', 'Numérique', 'Français', '2011-01-01', true);
+INSERT INTO ouvrage VALUES ( '978-2-340-01660-6', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman', 'Histoire', 'Broché', 'Français', '2019-04-04', true, 1, 3, 1, 'CB');
+INSERT INTO ouvrage VALUES ( '2-86967-579-8', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2, 2, 'PQ');
+INSERT INTO ouvrage VALUES ( '1863-8260', 'TEST', 'Journal', 'Numérique', 'Anglais', '1992-01-01', true, 3, 'QB');
+INSERT INTO ouvrage VALUES ( '9782340034648', 'Le TOEIC® en 49 étapes. Conforme aux dernières évolutions du test', 'Numérique', 'Français', '2019-01-01', true, 4, 'PE');
+INSERT INTO ouvrage VALUES ( '2-279-41041-9', 'Roumanie', 'Roman', 'Broché', 'Français', '1994-01-01', true, 1, 5, 5, 'PG');
+INSERT INTO ouvrage VALUES ( '978-2-913927-65-0', 'Apiculture biodynamique : vers une pratique respectueuse de l abeille', 'Revue', 'Relié', 'Français', '2018-01-01', false, 0, 1, 6, 'QH 301');
+INSERT INTO ouvrage VALUES ( '978-2-227-48339-2', 'Voir les jeux vidéo : perception, construction, fiction', 'Revue', 'Broché', 'Français', '2012-01-01', true, 1, 1, 7, 'QB');
+INSERT INTO ouvrage VALUES ( '978-2-13060-371-9', 'Les écoutes téléphoniques', 'E-book', 'Numérique', 'Français', '2010-01-01', true, 8, 'QB');
+INSERT INTO ouvrage VALUES ( '978-2-247-19148-2', 'Intelligence artificielle', 'E-book', 'Numérique', 'Français', '2019-01-01', true, 9, 'QB');
+INSERT INTO ouvrage VALUES ( '1767-4883', 'L Essentiel de la Moto', 'Journal', 'Numérique', 'Français', '2011-01-01', true, 10, 'TK');
 
+
+/* EMPRUNTER */
+/* IdPersonne, IdOuvrage, Num */
+
+/* EMPRUNT 1 */
+INSERT INTO emprunter VALUES ( 1, '978-2-340-01660-6', 1);
+
+/* EMPRUNT 2 */
+INSERT INTO emprunter VALUES ( 2, '2-86967-579-8', 2);
+INSERT INTO emprunter VALUES ( 2, '2-279-41041-9', 2);
+
+/* EMPRUNT 3 */
+INSERT INTO emprunter VALUES ( 3, '2-279-41041-9', 3);
+INSERT INTO emprunter VALUES ( 3, '978-2-227-48339-2', 3);
+
+/* EMPRUNT 4 */
+INSERT INTO emprunter VALUES ( 5, '2-279-41041-9', 4);
+
+/* EMPRUNT 5 */
+INSERT INTO emprunter VALUES ( 4, '978-2-227-48339-2', 5);
+
+/* EMPRUNT 6 */
+INSERT INTO emprunter VALUES ( 2, '978-2-340-01660-6', 6);
+
+/* EMPRUNT 7 */
+INSERT INTO emprunter VALUES ( 8, '2-86967-579-8', 7);
+INSERT INTO emprunter VALUES ( 8, '978-2-340-01660-6', 7);
+
+/* EMPRUNT 8 */
+INSERT INTO emprunter VALUES ( 9, '2-86967-579-8', 8);
+
+/* EMPRUNT 9 */
+INSERT INTO emprunter VALUES ( 10, '2-279-41041-9', 9);
+INSERT INTO emprunter VALUES ( 10, '978-2-340-01660-6', 9);
+INSERT INTO emprunter VALUES ( 10, '2-279-41041-9', 9);
+
+/* EMPRUNT 10 */
+INSERT INTO emprunter VALUES ( 7, '978-2-913927-65-0', 10);
+
+
+/* ILLUSTRER */
+/* Id personne, id ouvrage */
+
+INSERT INTO illustrer VALUES ( 12, '2-86967-579-8');
+INSERT INTO illustrer VALUES ( 14, '2-86967-579-8');
+INSERT INTO illustrer VALUES ( 13, '978-2-227-48339-2');
+INSERT INTO illustrer VALUES ( 14, '978-2-340-01660-6');
+
+
+/* ECRIRE */
+/* Id personne, id ouvrage */
 
 
 
