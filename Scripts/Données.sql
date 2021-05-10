@@ -357,20 +357,20 @@ INSERT INTO Realise VALUES (17674883, 9, 'ecrire');
 
 --ILLUSTRATEUR
 --Sangho Bang
-INSERT INTO Realise VALUES (9782253161189, 11, 'illustre');
-INSERT INTO Realise VALUES (9782253003663, 11, 'illustre');
-INSERT INTO Realise VALUES (9782253005629, 11, 'illustre');
-INSERT INTO Realise VALUES (9782253005599, 11, 'illustre');
-INSERT INTO Realise VALUES (9782253006282, 11, 'illustre');
+INSERT INTO Realise VALUES (9782253161189, 11, 'illustrer');
+INSERT INTO Realise VALUES (9782253003663, 11, 'illustrer');
+INSERT INTO Realise VALUES (9782253005629, 11, 'illustrer');
+INSERT INTO Realise VALUES (9782253005599, 11, 'illustrer');
+INSERT INTO Realise VALUES (9782253006282, 11, 'illustrer');
 --Busc Andy
-INSERT INTO Realise VALUES (9782227483392, 12, 'illustre');
-INSERT INTO Realise VALUES (9782130603719, 12, 'illustre');
-INSERT INTO Realise VALUES (9782247191482, 12, 'illustre');
+INSERT INTO Realise VALUES (9782227483392, 12, 'illustrer');
+INSERT INTO Realise VALUES (9782130603719, 12, 'illustrer');
+INSERT INTO Realise VALUES (9782247191482, 12, 'illustrer');
 --Enrique Luis
-INSERT INTO Realise VALUES (17674883, 13, 'illustre');
+INSERT INTO Realise VALUES (17674883, 13, 'illustrer');
 --Eriksson Petra
-INSERT INTO Realise VALUES (18638260, 14, 'illustre');
-INSERT INTO Realise VALUES (2869675798, 14, 'illustre');
+INSERT INTO Realise VALUES (18638260, 14, 'illustrer');
+INSERT INTO Realise VALUES (2869675798, 14, 'illustrer');
 
 
 /* EMPRUNT */

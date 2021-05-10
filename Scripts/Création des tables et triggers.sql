@@ -82,7 +82,8 @@ CREATE TABLE Ouvrage(
 	CONSTRAINT Ouvrage_PK PRIMARY KEY (ISBN)
 
 	,CONSTRAINT Ouvrage_Classification_FK FOREIGN KEY (Tag) REFERENCES Classification(Tag)
-	,CONSTRAINT Ouvrage_Éditeur0_FK FOREIGN KEY (Nom_Editeur) REFERENCES Editeur(Nom)
+	,CONSTRAINT Ouvrage_Éditeur0_FK FOREIGN KEY (Nom_Editeur) REFERENCES Editeur(Nom),
+	CONSTRAINT Emprunt_Not_Zero CHECK (Encours >= 0)
 );
 
 
@@ -97,11 +98,11 @@ CREATE TABLE Emprunt(
 	Date_de_fin        DATE   ,
 	Rendu              NUMBER (1) NOT NULL  ,
 	CONSTRAINT Emprunt_PK PRIMARY KEY (ID_Adherent,ID_Bibliothecaire,ISBN, Date_de_debut),
-	CONSTRAINT CHK_BOOLEAN_Rendu CHECK (Rendu IN (0,1)),
-	CONSTRAINT Emprunt_Adherent_FK FOREIGN KEY (ID_Adherent) REFERENCES Adherent(ID),
-	CONSTRAINT Emprunt_Bibliothecaire0_FK FOREIGN KEY (ID_Bibliothecaire) REFERENCES Bibliothecaire(ID),
-	CONSTRAINT Emprunt_Ouvrage1_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN),
-	CONSTRAINT Emprunt_Not_Zero CHECK (Encours >= 0)
+	CONSTRAINT CHK_BOOLEAN_Rendu CHECK (Rendu IN (0,1))
+
+	,CONSTRAINT Emprunt_Adherent_FK FOREIGN KEY (ID_Adherent) REFERENCES Adherent(ID)
+	,CONSTRAINT Emprunt_Bibliothecaire0_FK FOREIGN KEY (ID_Bibliothecaire) REFERENCES Bibliothecaire(ID)
+	,CONSTRAINT Emprunt_Ouvrage1_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
 );
 
 ------------------------------------------------------------
@@ -110,7 +111,7 @@ CREATE TABLE Emprunt(
 CREATE TABLE Realise(
 	ISBN               NUMBER(32,0)  NOT NULL  ,
 	ID_Auteur          NUMBER(10,0)  NOT NULL  ,
-	Role			   VARCHAR2 (32) NOT NULL  CONSTRAINT realise_check_role CHECK (Role IN ('ecrire','illustre','participe')) ,
+	Role			   VARCHAR2 (32) NOT NULL  CONSTRAINT realise_check_role CHECK (Role IN ('ecrire','illustrer','participer')) ,
 	CONSTRAINT Realise_PK PRIMARY KEY (ISBN,ID_Auteur)
 
 	,CONSTRAINT Realise_Ouvrage_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
@@ -119,7 +120,7 @@ CREATE TABLE Realise(
 
 
 
-
+--CREATION DES TRIGGERS
 
 CREATE SEQUENCE Seq_Adherent_ID START WITH 1 INCREMENT BY 1 NOCYCLE;
 CREATE SEQUENCE Seq_Bibliothecaire_ID START WITH 1 INCREMENT BY 1 NOCYCLE;
