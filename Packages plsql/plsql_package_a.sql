@@ -29,7 +29,7 @@ procedure editeurModifierEmailByNom(nomEditeur IN varchar2, nouvelEmail IN varch
 
 function editeurLister RETURN pk_editeur.refcursorType;
 
-function editeurTotal RETURN pk_editeur.refcursorType;
+function editeurTotal RETURN number;
 
 function editeurTrierByAnneeParution RETURN pk_editeur.refcursorType;
 function editeurTrierByTitreASC RETURN pk_editeur.refcursorType;
@@ -136,7 +136,7 @@ EXCEPTION
 END;
 
 -- TOTAL
-FUNCTION editeurTotal RETURN pk_editeur.refcursorType IS
+FUNCTION editeurTotal RETURN number IS
 
     cursEmp pk_editeur.refCursorType;
 	ligneEditeur editeur%rowtype;
@@ -145,16 +145,9 @@ FUNCTION editeurTotal RETURN pk_editeur.refcursorType IS
 BEGIN
     OPEN cursEmp FOR
 
-	SELECT nom AS total
+	SELECT nom
 	FROM editeur;
-    
-    LOOP 
-		FETCH listeEditeurs INTO ligneEditeur;
-		EXIT WHEN listeEditeurs%notfound;
-		nbEditeur:=nbEditeur+1;
-	END LOOP;
-    
-
+   
 	RETURN nbEditeur;
 
 EXCEPTION 
@@ -177,7 +170,7 @@ BEGIN
 	SELECT ouvrage.* 
 	FROM editeur, ouvrage
 	WHERE editeur.nom = ouvrage.nom_editeur
-	ORDER BY 'année de parution';
+	ORDER BY annee_de_parution;
 
 	RETURN cursEmp ;
 	
@@ -453,13 +446,12 @@ END;
 SET serveroutput ON;
 
 DECLARE
-	listeEditeurs pk_editeur.refCursorType;
+    nbEditeur number:= 0;
 BEGIN
 
 	nbEditeur := pk_editeur.editeurTotal() ;
+    DBMS_OUTPUT.PUT_LINE(nbEditeur || ' éditeur(s) trouvé.');
 
-	
-	
 	-- Si le curseur est vide
 	IF nbEditeur = 0 then
 		raise no_data_found;
@@ -489,7 +481,7 @@ SET serveroutput ON;
 
 DECLARE
 	listeOuvrages pk_editeur.refCursorType;
-	ligneOuvrage editeur%rowtype;
+	ligneOuvrage ouvrage%rowtype;
 	nbOuvrage number:= 0;
 	
 BEGIN
@@ -501,16 +493,18 @@ BEGIN
 		EXIT WHEN listeOuvrages%notfound;
 		nbOuvrage := nbOuvrage + 1;
 		
-		-- Affichier les informations sur le pilote extrait du curseur
-		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       ='|| ligneOuvrage.ISBN);
-		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      ='|| ligneOuvrage.Titre); 
-		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          ='|| ligneOuvrage.Annee_de_parution); 
-		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     ='|| ligneOuvrage.Langue);
-		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     ='|| ligneOuvrage.Format);
-		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    ='|| ligneOuvrage.Edition);
-		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                ='|| ligneOuvrage.Description);
-		DBMS_OUTPUT.PUT_LINE('Couverture de l''ouvrage                 ='|| ligneOuvrage.Couverture);
-		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    ='|| ligneOuvrage.Encours);	
+		-- Afficher les informations sur le pilote extrait du curseur
+		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       = '|| ligneOuvrage.ISBN);
+		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      = '|| ligneOuvrage.Titre); 
+		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          = '|| ligneOuvrage.Annee_de_parution); 
+		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     = '|| ligneOuvrage.Langue);
+		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     = '|| ligneOuvrage.Format);
+		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    = '|| ligneOuvrage.Edition);
+		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                = '|| ligneOuvrage.Description);
+		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    = '|| ligneOuvrage.Encours);	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
 
 	END LOOP;
 	
@@ -541,7 +535,7 @@ SET serveroutput ON;
 
 DECLARE
 	listeOuvrages pk_editeur.refCursorType;
-	ligneOuvrage editeur%rowtype;
+	ligneOuvrage ouvrage%rowtype;
 	nbOuvrage number:= 0;
 
 BEGIN
@@ -553,15 +547,17 @@ BEGIN
 		nbOuvrage := nbOuvrage + 1;
 		
 		-- Affichier les informations sur le pilote extrait du curseur
-		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       ='|| ligneOuvrage.ISBN);
-		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      ='|| ligneOuvrage.Titre); 
-		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          ='|| ligneOuvrage.Annee_de_parution); 
-		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     ='|| ligneOuvrage.Langue);
-		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     ='|| ligneOuvrage.Format);
-		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    ='|| ligneOuvrage.Edition);
-		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                ='|| ligneOuvrage.Description);
-		DBMS_OUTPUT.PUT_LINE('Couverture de l''ouvrage                 ='|| ligneOuvrage.Couverture);
-		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    ='|| ligneOuvrage.Encours);	
+		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       = '|| ligneOuvrage.ISBN);
+		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      = '|| ligneOuvrage.Titre); 
+		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          = '|| ligneOuvrage.Annee_de_parution); 
+		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     = '|| ligneOuvrage.Langue);
+		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     = '|| ligneOuvrage.Format);
+		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    = '|| ligneOuvrage.Edition);
+		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                = '|| ligneOuvrage.Description);
+		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    = '|| ligneOuvrage.Encours);	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
 
 	END LOOP;
 	
@@ -592,7 +588,7 @@ SET serveroutput ON;
 
 DECLARE
 	listeOuvrages pk_editeur.refCursorType;
-	ligneOuvrage editeur%rowtype;
+	ligneOuvrage ouvrage%rowtype;
 	nbOuvrage number:= 0;
 	
 BEGIN
@@ -604,15 +600,17 @@ BEGIN
 		nbOuvrage := nbOuvrage + 1;
 		
 		-- Affichier les informations sur le pilote extrait du curseur
-		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       ='|| ligneOuvrage.ISBN);
-		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      ='|| ligneOuvrage.Titre); 
-		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          ='|| ligneOuvrage.Annee_de_parution); 
-		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     ='|| ligneOuvrage.Langue);
-		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     ='|| ligneOuvrage.Format);
-		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    ='|| ligneOuvrage.Edition);
-		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                ='|| ligneOuvrage.Description);
-		DBMS_OUTPUT.PUT_LINE('Couverture de l''ouvrage                 ='|| ligneOuvrage.Couverture);
-		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    ='|| ligneOuvrage.Encours);	
+		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       = '|| ligneOuvrage.ISBN);
+		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      = '|| ligneOuvrage.Titre); 
+		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          = '|| ligneOuvrage.Annee_de_parution); 
+		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     = '|| ligneOuvrage.Langue);
+		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     = '|| ligneOuvrage.Format);
+		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    = '|| ligneOuvrage.Edition);
+		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                = '|| ligneOuvrage.Description);
+		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    = '|| ligneOuvrage.Encours);	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
 
 	END LOOP;
 	
