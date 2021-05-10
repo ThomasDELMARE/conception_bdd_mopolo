@@ -138,14 +138,11 @@ END;
 -- TOTAL
 FUNCTION editeurTotal RETURN number IS
 
-    cursEmp pk_editeur.refCursorType;
-	ligneEditeur editeur%rowtype;
 	nbEditeur number:= 0;
 
 BEGIN
-    OPEN cursEmp FOR
-
-	SELECT nom
+    
+	SELECT COUNT(*) INTO nbEditeur
 	FROM editeur;
    
 	RETURN nbEditeur;
@@ -450,7 +447,6 @@ DECLARE
 BEGIN
 
 	nbEditeur := pk_editeur.editeurTotal() ;
-    DBMS_OUTPUT.PUT_LINE(nbEditeur || ' éditeur(s) trouvé.');
 
 	-- Si le curseur est vide
 	IF nbEditeur = 0 then
