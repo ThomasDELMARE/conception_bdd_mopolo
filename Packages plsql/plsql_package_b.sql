@@ -26,7 +26,7 @@ PROCEDURE ouvrageModifierLangueByISBN(ISBNAModifier IN number, nouvelleLangue IN
 
 PROCEDURE ouvrageModifierFormatByISBN(ISBNAModifier IN number, nouveauFormat IN varchar2);
 
-FUNCTION ouvrageLister() RETURN pk_ouvrage.refcursorType;
+FUNCTION ouvrageLister(nomEditeurALister IN varchar2) RETURN pk_ouvrage.refcursorType;
 
 END pk_ouvrage;
 /
@@ -40,7 +40,7 @@ PROCEDURE ouvrageInserer(ouvrage IN ouvrage%rowtype) IS
 
 BEGIN 
 
-INSERT INTO OUVRAGE VALUES (ouvrage.Isbn, ouvrage.Titre, ouvrage.Annee_de_parution, ouvrage.Langue, ouvrage.Format, ouvrage.Edition, ouvrage.Description, ouvrage.Couverture, ouvrage.Encours);
+INSERT INTO OUVRAGE VALUES (ouvrage.Isbn, ouvrage.Titre, ouvrage.Annee_de_parution, ouvrage.Langue, ouvrage.Format, ouvrage.Edition, ouvrage.Description, ouvrage.Couverture, ouvrage.Encours, ouvrage.tag, ouvrage.nom_editeur);
 
 EXCEPTION
 	
@@ -112,9 +112,9 @@ BEGIN
 
 	OPEN cursEmp FOR
 	
-	SELECT * 
-	FROM editeur, ouvrage
-	WHERE nomEditeur = nomEditeurALister;
+	SELECT ouvrage.* 
+	FROM ouvrage
+	WHERE ouvrage.nom_editeur = nomEditeurALister;
 
 	RETURN cursEmp ;
 	
@@ -146,23 +146,25 @@ SELECT ISBN FROM ouvrage;
 SET serveroutput ON
 
 DECLARE
-ouvrage  ouvrage%ROWTYPE;
+    ouvrageAInserer  ouvrage%ROWTYPE;
 
 BEGIN
 
-	ouvrage.Isbn := 9782253002857;
-	ouvrage.Titre := 'Les Rougon-Macquart, tome 7 : L''assommoir';
-	ouvrage.Annee_de_parution := 1973;
-	ouvrage.Langue := 'Française';
-	ouvrage.Format := 'Poche';
-	ouvrage.Edition := 1;
-	ouvrage.Description := 'Zola, dans "L''Assommoir", septième roman des "Rougon-Macquart" raconte le drame de la vie populaire : l''alcoolisme, propagé par les débits de boissons nommés à juste titre des « assommoirs ». Coupeau, bon ouvrier zingueur, après un accident, au cours d''une longue convalescence, se laisse gagner par l''alcool. Sa femme Gervaise, qui avait de haute lutte acquis une blanchisserie, après avoir résisté, est à son tour entraîné jusqu''à la pire déchéance.';
-	ouvrage.Couverture := NULL;
-	ouvrage.Encours := 2;
+	ouvrageAInserer.Isbn := 9782253002857;
+	ouvrageAInserer.Titre := 'Les Rougon-Macquart, tome 7 : L''assommoir';
+	ouvrageAInserer.Annee_de_parution := 1973;
+	ouvrageAInserer.Langue := 'Française';
+	ouvrageAInserer.Format := 'Poche';
+	ouvrageAInserer.Edition := 1;
+	ouvrageAInserer.Description := 'Zola, dans "L''Assommoir", septième roman des "Rougon-Macquart" raconte le drame de la vie populaire : l''alcoolisme, propagé par les débits de boissons nommés à juste titre des « assommoirs ». Coupeau, bon ouvrier zingueur, après un accident, au cours d''une longue convalescence, se laisse gagner par l''alcool. Sa femme Gervaise, qui avait de haute lutte acquis une blanchisserie, après avoir résisté, est à son tour entraîné jusqu''à la pire déchéance.';
+	ouvrageAInserer.Couverture := NULL;
+	ouvrageAInserer.Encours := 2;
+    ouvrageAInserer.tag := 'PN';
+    ouvrageAInserer.nom_editeur := 'Editis';
 	 
-	pk_ouvrage.ouvrageInserer(ouvrage);
+	pk_ouvrage.ouvrageInserer(ouvrageAInserer);
 	 
-	DBMS_OUTPUT.PUT_LINE('L''ouvrage avec l''ISBN '|| ouvrage.Isbn || ' a été inséré.');
+	DBMS_OUTPUT.PUT_LINE('L''ouvrage avec l''ISBN '|| ouvrageAInserer.Isbn || ' a été inséré.');
  
 EXCEPTION 
 
@@ -301,7 +303,7 @@ DECLARE
 	nbOuvrage number:= 0;
 BEGIN
 
-	listeOuvrages:= pk_ouvrage.ouvrageLister() ;
+	listeOuvrages:= pk_ouvrage.ouvrageLister('Hachette') ;
 
 	LOOP 
 		FETCH listeOuvrages INTO ligneOuvrage;
@@ -309,18 +311,18 @@ BEGIN
 		nbOuvrage:=nbOuvrage+1;
 		
 		-- Afficher les informations sur l'ouvrage extrait du curseur
-		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       ='|| ligneOuvrage.Isbn);
-		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      ='|| ligneOuvrage.Titre); 
-		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          ='|| ligneOuvrage.annnee_de_parution); 
-		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     ='|| ligneOuvrage.langue);
-		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     ='|| ligneOuvrage.Format);
-		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    ='|| ligneOuvrage.Edition);
-		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                ='|| ligneOuvrage.Description);
-		DBMS_OUTPUT.PUT_LINE('Couverture de l''ouvrage                 ='|| ligneOuvrage.Couverture);
-		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    ='|| ligneOuvrage.Encours);
+		DBMS_OUTPUT.PUT_LINE('ISBN de l''ouvrage                       = '|| ligneOuvrage.Isbn);
+		DBMS_OUTPUT.PUT_LINE('Titre de l''ouvrage                      = '|| ligneOuvrage.Titre); 
+		DBMS_OUTPUT.PUT_LINE('Année de parution de l''ouvrage          = '|| ligneOuvrage.annee_de_parution); 
+		DBMS_OUTPUT.PUT_LINE('Langue de l''ouvrage                     = '|| ligneOuvrage.langue);
+		DBMS_OUTPUT.PUT_LINE('Format de l''ouvrage                     = '|| ligneOuvrage.Format);
+		DBMS_OUTPUT.PUT_LINE('Edition de l''ouvrage                    = '|| ligneOuvrage.Edition);
+		DBMS_OUTPUT.PUT_LINE('Description de l''ouvrage                = '|| ligneOuvrage.Description);
+		DBMS_OUTPUT.PUT_LINE('Encours de l''ouvrage                    = '|| ligneOuvrage.Encours);
+		DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
+        DBMS_OUTPUT.PUT_LINE('');	
 		
-		
-
 	END LOOP;
 	
 	-- Si le curseur est vide
