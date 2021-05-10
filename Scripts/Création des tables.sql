@@ -78,11 +78,11 @@ CREATE TABLE Ouvrage(
 	Couverture         BLOB   ,
 	Encours            NUMBER(10,0)  NOT NULL  ,
 	Tag                VARCHAR2 (16) NOT NULL  ,
-	Nom                VARCHAR2 (32) NOT NULL  ,
+	Nom_Editeur        VARCHAR2 (32) NOT NULL  ,
 	CONSTRAINT Ouvrage_PK PRIMARY KEY (ISBN)
 
 	,CONSTRAINT Ouvrage_Classification_FK FOREIGN KEY (Tag) REFERENCES Classification(Tag)
-	,CONSTRAINT Ouvrage_Éditeur0_FK FOREIGN KEY (Nom) REFERENCES Editeur(Nom)
+	,CONSTRAINT Ouvrage_Éditeur0_FK FOREIGN KEY (Nom_Editeur) REFERENCES Editeur(Nom)
 );
 
 

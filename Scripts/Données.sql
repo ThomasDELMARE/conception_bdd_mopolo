@@ -280,21 +280,19 @@ INSERT INTO editeur VALUES ( 'Editis', '02 32 81 81 05', 'Editis@gmail.com', '25
 
 /* ADHERENT */
 
-
-INSERT INTO Adherent VALUES ('Mccullough', 'Galvin', TO_DATE('13-08-1985','DD-MM-YYYY'), '0767506993', 'libero.est.congue@ac.edu', 'CP 603,  9532 Curabitur Rue');
-INSERT INTO Adherent VALUES ('Pacheco', 'Lamar', TO_DATE('13-04-1960','DD-MM-YYYY'), '0249580570', 'dictum.eu.placerat@arcu.co.uk', '498-9623 Diam. Chemin');
-INSERT INTO Adherent VALUES ('Bowman', 'Karyn', TO_DATE('30-05-1972','DD-MM-YYYY'), '0907654549', 'elit.pellentesque.a@sapiengravidanon.ca', '7914 Pharetra. Rue');
-INSERT INTO Adherent VALUES ('Hunt', 'Maxwell', TO_DATE('28-04-1968','DD-MM-YYYY'), '0848649439', 'nisl.sem@odioPhasellus.ca', 'CP 778,  7178 Et,  Rd.');
-INSERT INTO Adherent VALUES ('Whitehead', 'Otto', TO_DATE('16-03-1966','DD-MM-YYYY'), '0162932117', 'convallis.ligula@nunc.co.uk', 'CP 263,  1921 Curabitur Rue');
-INSERT INTO Adherent VALUES ('Garner', 'Cedric', TO_DATE('08-08-1946','DD-MM-YYYY'), '0580420492', 'senectus@variuset.org', '9589 Dignissim Route');
-INSERT INTO Adherent VALUES ('Ortega', 'Scott', TO_DATE('22-11-1961','DD-MM-YYYY'), '0483141536', 'vulputate@lacusMauris.edu', 'CP 406,  4076 Aliquam Rd.');
-INSERT INTO Adherent VALUES ('Whitaker', 'Norman', TO_DATE('08-06-1989','DD-MM-YYYY'), '0902039812', 'luctus.et.ultrices@nislNullaeu.edu', 'Appartement 632-2738 Nulla Chemin');
-INSERT INTO Adherent VALUES ('Walton', 'Adam', TO_DATE('08-06-1950','DD-MM-YYYY'), '0275203977', 'quis@Crasdolor.co.uk', 'CP 795,  7488 Nulla Ave');
-INSERT INTO Adherent VALUES ('Webster', 'Charles', TO_DATE('07-06-2010','DD-MM-YYYY'), '0261119644', 'est.mollis.non@quisarcuvel.com', 'Appartement 932-7975 Litora Ave');
-INSERT INTO Adherent VALUES ('Brown', 'Davis', TO_DATE('17-05-1959','DD-MM-YYYY'), '0883681848', 'fermentum.metus.Aenean@nonquam.org', '836-1234 Magna. Ave');
-INSERT INTO Adherent VALUES ('Ward', 'Tucker', TO_DATE('18-03-1950','DD-MM-YYYY'), '0881975294', 'Aenean.eget@Quisqueporttitoreros.co.uk', '5576 Convallis Route');
-INSERT INTO Adherent VALUES ('Richardson', 'Yvonne', TO_DATE('20-07-1992','DD-MM-YYYY'), '0960746354', 'Sed@ametornarelectus.net', '1111 Ac,  Route');
-
+INSERT INTO Adherent VALUES ( NULL, 'Mccullough', 'Galvin', TO_DATE('13-08-1985','DD-MM-YYYY'), '0767506993', 'libero.est.congue@ac.edu', 'CP 603,  9532 Curabitur Rue');
+INSERT INTO Adherent VALUES ( NULL, 'Pacheco', 'Lamar', TO_DATE('13-04-1960','DD-MM-YYYY'), '0249580570', 'dictum.eu.placerat@arcu.co.uk', '498-9623 Diam. Chemin');
+INSERT INTO Adherent VALUES ( NULL, 'Bowman', 'Karyn', TO_DATE('30-05-1972','DD-MM-YYYY'), '0907654549', 'elit.pellentesque.a@sapiengravidanon.ca', '7914 Pharetra. Rue');
+INSERT INTO Adherent VALUES ( NULL, 'Hunt', 'Maxwell', TO_DATE('28-04-1968','DD-MM-YYYY'), '0848649439', 'nisl.sem@odioPhasellus.ca', 'CP 778,  7178 Et,  Rd.');
+INSERT INTO Adherent VALUES ( NULL, 'Whitehead', 'Otto', TO_DATE('16-03-1966','DD-MM-YYYY'), '0162932117', 'convallis.ligula@nunc.co.uk', 'CP 263,  1921 Curabitur Rue');
+INSERT INTO Adherent VALUES ( NULL, 'Garner', 'Cedric', TO_DATE('08-08-1946','DD-MM-YYYY'), '0580420492', 'senectus@variuset.org', '9589 Dignissim Route');
+INSERT INTO Adherent VALUES ( NULL, 'Ortega', 'Scott', TO_DATE('22-11-1961','DD-MM-YYYY'), '0483141536', 'vulputate@lacusMauris.edu', 'CP 406,  4076 Aliquam Rd.');
+INSERT INTO Adherent VALUES ( NULL, 'Whitaker', 'Norman', TO_DATE('08-06-1989','DD-MM-YYYY'), '0902039812', 'luctus.et.ultrices@nislNullaeu.edu', 'Appartement 632-2738 Nulla Chemin');
+INSERT INTO Adherent VALUES ( NULL, 'Walton', 'Adam', TO_DATE('08-06-1950','DD-MM-YYYY'), '0275203977', 'quis@Crasdolor.co.uk', 'CP 795,  7488 Nulla Ave');
+INSERT INTO Adherent VALUES ( NULL, 'Webster', 'Charles', TO_DATE('07-06-2010','DD-MM-YYYY'), '0261119644', 'est.mollis.non@quisarcuvel.com', 'Appartement 932-7975 Litora Ave');
+INSERT INTO Adherent VALUES ( NULL, 'Brown', 'Davis', TO_DATE('17-05-1959','DD-MM-YYYY'), '0883681848', 'fermentum.metus.Aenean@nonquam.org', '836-1234 Magna. Ave');
+INSERT INTO Adherent VALUES ( NULL, 'Ward', 'Tucker', TO_DATE('18-03-1950','DD-MM-YYYY'), '0881975294', 'Aenean.eget@Quisqueporttitoreros.co.uk', '5576 Convallis Route');
+INSERT INTO Adherent VALUES ( NULL, 'Richardson', 'Yvonne', TO_DATE('20-07-1992','DD-MM-YYYY'), '0960746354', 'Sed@ametornarelectus.net', '1111 Ac,  Route');
 
 
 /* BIBLIOTHECAIRE */
@@ -306,92 +304,30 @@ INSERT INTO Bibliothecaire VALUES ( NULL, 'Deleon', 'Vincent', TO_DATE('08-08-19
 INSERT INTO Bibliothecaire VALUES ( NULL, 'Kelley', 'Arden', TO_DATE('18-12-1982','DD-MM-YYYY'), '0364894895', 'risus@Duis.edu', '689-8201 Orci. Impasse');
 
 
-
 /* OUVRAGE */
-/* ISBN (int), Titre, genre, format, langue, date_parution, disponibilite, nb exemplaire dispo, nb exemplaire total, id editeur, id classification */
-/* Format peut etre broché, relié ou numérique */ 
 
-INSERT INTO ouvrage VALUES ( '9782340016606', 'Tempête sur le Grand Moyen-Orient: entre l empire atlantique et l Eurasie, le monde arabo-musulman', 'Histoire', 'Broché', 'Français', '2019-04-04', true, 1, 3, 1, 'CB');
-INSERT INTO ouvrage VALUES ( '2869675798', 'Peter Pan. 3, Tempête', 'Bande dessinée', 'Broché', 'Française', '1994-01-01', false, 0, 2, 2, 'PQ');
-INSERT INTO ouvrage VALUES ( '1863-8260', 'TEST', 'Journal', 'Numérique', 'Anglais', '1992-01-01', true, 3, 'QB');
-INSERT INTO ouvrage VALUES ( '9782340034648', 'Le TOEIC® en 49 étapes. Conforme aux dernières évolutions du test', 'Numérique', 'Français', '2019-01-01', true, 4, 'PE');
-INSERT INTO ouvrage VALUES ( '2279410419', 'Roumanie', 'Roman', 'Broché', 'Français', '1994-01-01', true, 1, 5, 5, 'PG');
-INSERT INTO ouvrage VALUES ( '9782913927650', 'Apiculture biodynamique : vers une pratique respectueuse de l abeille', 'Revue', 'Relié', 'Français', '2018-01-01', false, 0, 1, 6, 'QH 301');
-INSERT INTO ouvrage VALUES ( '9782227483392', 'Voir les jeux vidéo : perception, construction, fiction', 'Revue', 'Broché', 'Français', '2012-01-01', true, 1, 1, 7, 'QB');
-INSERT INTO ouvrage VALUES ( '9782130603719', 'Les écoutes téléphoniques', 'E-book', 'Numérique', 'Français', '2010-01-01', true, 8, 'QB');
-INSERT INTO ouvrage VALUES ( '9782247191482', 'Intelligence artificielle', 'E-book', 'Numérique', 'Français', '2019-01-01', true, 9, 'QB');
-INSERT INTO ouvrage VALUES ( '17674883', 'L Essentiel de la Moto', 'Journal', 'Numérique', 'Français', '2011-01-01', true, 10, 'TK');
-INSERT INTO ouvrage VALUES (9781470887131, 'Les Misérables', 2012, 'Française', 'Poche', 3, 'Les Misérables est un roman de Victor Hugo publié en 1862. Il a donné lieu à de nombreuses adaptations, au cinéma et sur de nombreux autres supports. Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle, l''auteur s''attache plus particulièrement au destin du bagnard Jean Valjean. C''est un roman historique, social et philosophique dans lequel on retrouve les idéaux du romantisme et ceux de Victor Hugo concernant la nature humaine.', NULL, 1, 'PN', 'Galliamard');
+INSERT INTO ouvrage VALUES (2869675798, 'Peter Pan. 3, Tempête', 2000, 'Française', 'Broché', 5, 'Peter pan le roi des roublards', NULL, 4, 'P', 'Hachette');
+INSERT INTO ouvrage VALUES (18638260, 'Me gusta la playa', 2010, 'Espagnole', 'Numérique', 1, 'La playa', NULL, 1, 'M', 'Minuit');
+INSERT INTO ouvrage VALUES (9782340034648, 'Le TOEIC en 49 étapes. Conforme aux dernières évolutions du test', 1998, 'Française', 'Relié', 5, 'TOEIC® en 49 étapes', NULL, 2, 'PE', 'Larousse');
+INSERT INTO ouvrage VALUES (9782913927650, 'Apiculture biodynamique : vers une pratique respectueuse de l abeille', 2015, 'Française', 'Broché', 5, 'Apprendre à s''occuper d''essaims d''abeilles sans dénaturer leur cycle de vie', NULL, 1, 'SF', 'Privat');
+INSERT INTO ouvrage VALUES (9782227483392, 'Voir les jeux vidéo : perception, construction, fiction', 2021, 'Française', 'Broché', 5, 'Le jeu vidéo est un nouveau acteur important dans le monde d''ajourd''hui, vous y trouverez les informations sur le développement des capacités associées au fait de jouer.', NULL, 1, 'L', 'Larousse');
+INSERT INTO ouvrage VALUES (9782130603719, 'Les écoutes téléphoniques', 2020, 'Française', 'Numérique', 1, NULL, NULL, 1, 'PN 4699 - 5650', 'Milan');
+INSERT INTO ouvrage VALUES (9782247191482, 'Intelligence artificielle', 2020, 'Française', 'Numérique', 1, 'Découvrez le monde de l''Intelligence Artificielle et toutes ses possibilitées.', NULL, 1, 'L', 'Larousse');
+INSERT INTO ouvrage VALUES (17674883, 'L''Essentiel de la Moto', 2017, 'Française', 'Numérique', 1, 'Réparer votre moto et entretenez là à la perfection avec ce guide incroyable du cul', NULL, 1, 'TK', 'Hachette');
+INSERT INTO ouvrage VALUES (9781470887131, 'Les Misérables', 2012, 'Française', 'Poche', 3, 'Les Misérables est un roman de Victor Hugo publié en 1862. Il a donné lieu à de nombreuses adaptations, au cinéma et sur de nombreux autres supports. Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle, l''auteur s''attache plus particulièrement au destin du bagnard Jean Valjean. C''est un roman historique, social et philosophique dans lequel on retrouve les idéaux du romantisme et ceux de Victor Hugo concernant la nature humaine.', NULL, 5, 'PN', 'Galliamard');
+INSERT INTO ouvrage VALUES (9782253161189, 'Les Rougon-Macquart, tome 1 : La Fortune des Rougon', 2004, 'Française', 'Poche', 2, 'Préface: Je veux expliquer comment une famille, un petit groupe d’êtres, se comporte dans une société, en s’épanouissant pour donner naissance à dix, à vingt individus qui paraissent, au premier coup d’œil, profondément dissemblables, mais que l’analyse montre intimement liés les uns aux autres. L’hérédité a ses lois, comme la pesanteur. Histoire naturelle et sociale d’une famille sous le Second Empire. Titre scientifique: Les Origines. (1871)', NULL, 3, 'PN', 'Editis');
+INSERT INTO ouvrage VALUES (9782253003663, 'Les Rougon-Macquart, tome 2 : La Curée', 2001, 'Française', 'Poche', 2, 'A la fin d''une chasse, pendant la curée, les chiens dévorent les entrailles de la bête tuée. Pour le jeune Zola qui déteste son époque, c''est le coeur de Paris, entaillé par les larges avenues de Napoléon III, que des spéculateurs véreux s''arrachent. Ce deuxième volume des Rougon-Macquart, histoire naturelle et sociale d''une famille sous le Second Empire, est l''un des plus violents. Zola ne pardonne pas ces fortunes rapides qui inondent les allées du Bois d''attelages élégants, de toilettes de Worms et de bijoux éclatants. Aristide Saccard a réussi. Mais tout s''est dénaturé autour de lui : son épouse, Renée, la femme qui se conduit en homme, si belle et désoeuvrée, son fils, Maxime, l''amant efféminé de sa belle-mère. On accusa Zola d''obscénité. Il répliqua« Une société n''est forte que lorsqu''elle met la vérité sous la grande lumière du soleil. »', NULL, 2, 'PN', 'Editis');
+INSERT INTO ouvrage VALUES (9782253005629, 'Les Rougon-Macquart, tome 3 : Le Ventre de Paris', 1971, 'Française', 'Poche', 1, 'Pris sur les barricades, Florent a été condamné au bagne de Cayenne. Il s''en évade et retourne à Paris, aux Halles, où il espère se cacher et revoir son frère. Ce dernier, un gros charcutier, a épousé la belle Lisa. Le couple lui procure une place d''inspecteur aux Halles et essaie de l''engraisser. Mais Florent, au pied des montagnes de viande, de légumes et de beurre, reste maigre. Il n''a faim que de justice. Généreux, tendre, persuadé que l''homme est bon et honnête, il rêve de politique et veut changer la société du Second Empire. Lisa prend peur, son argent est en danger ! Les bien nourris feront taire les affamés. Cette évocation naturaliste des Halles est l''une des pages les plus célèbres de Zola. Enivré par les odeurs, il voulait en composer une symphonie mêlant le parfum des violettes aux puissants relents de poisson, de volaille et de viande. Aujourd''hui disparues, les Halles de Paris survivent grâce au génie sensuel de Zola.', NULL, 4, 'PN', 'Editis');
+INSERT INTO ouvrage VALUES (9782253005599, 'Les Rougon-Macquart, tome 5 : La faute de l''abbé Mouret', 2010, 'Française', 'Poche', 1, 'Serge Mouret est le prêtre d''un pauvre village, quelque part sur les plateaux désolés et brûlés du Midi de la France. Barricadé dans sa petite église, muré dans les certitudes émerveillées de sa foi, assujetti avec ravissement au rituel de sa fonction et aux horaires maniaques que lui impose sa vieille servante, il vit plus en ermite qu''en prêtre.', NULL, 3, 'PN', 'Editis');
+INSERT INTO ouvrage VALUES (9782253006282, 'Les Rougon-Macquart, tome 6 : Son Excellence Eugène Rougon', 2003, 'Française', 'Poche', 1, 'Mallarmé, le 18 mars 1876, écrivait à Zola à propos de Son Excellence Eugène Rougon : "Un intérêt profond s''y dissimule admirablement sous le hasard plein de plis et de cassures avec lequel le narrateur d''aujourd''hui doit étoffer sa conception.', NULL, 2, 'PN', 'Editis');
 
 
 /* EMPRUNT */
 
-INSERT INTO emprunt VALUES ( 1, '2019-05-14', '2019-05-19', 6, true, false, 1, 1);
-INSERT INTO emprunt VALUES ( 2, '2018-06-19', '2018-06-24', 6, true, true, 2, 2);
-INSERT INTO emprunt VALUES ( 3, '2020-06-30', '2020-07-8', 9, false, false, 2, 3);
-INSERT INTO emprunt VALUES ( 4, '2017-11-12', '2017-11-14', 3, true, true, 1, 4);
-INSERT INTO emprunt VALUES ( 5, '2016-02-10', '2016-02-17', 8, true, true, 1, 5);
-INSERT INTO emprunt VALUES ( 6, '2017-01-04', '2017-01-06', 3, true, false, 1, 6);
-INSERT INTO emprunt VALUES ( 7, '2014-02-02', '2014-02-15', 14, false, false, 2, 7);
-INSERT INTO emprunt VALUES ( 8, '2013-01-01', '2013-01-18', 19, true, true, 1, 8);
-INSERT INTO emprunt VALUES ( 9, '2012-05-05', '2012-05-11', 7, false, false, 3, 9);
-INSERT INTO emprunt VALUES ( 10, '2019-06-17', '2019-06-19', 3, true, true, 1, 10);
 
 
 
-
-/* EMPRUNTER */
-/* IdPersonne, IdOuvrage, Num */
-
-/* EMPRUNT 1 */
-INSERT INTO emprunter VALUES ( 1, '978-2-340-01660-6', 1);
-
-/* EMPRUNT 2 */
-INSERT INTO emprunter VALUES ( 2, '2-86967-579-8', 2);
-INSERT INTO emprunter VALUES ( 2, '2-279-41041-9', 2);
-
-/* EMPRUNT 3 */
-INSERT INTO emprunter VALUES ( 3, '2-279-41041-9', 3);
-INSERT INTO emprunter VALUES ( 3, '978-2-227-48339-2', 3);
-
-/* EMPRUNT 4 */
-INSERT INTO emprunter VALUES ( 5, '2-279-41041-9', 4);
-
-/* EMPRUNT 5 */
-INSERT INTO emprunter VALUES ( 4, '978-2-227-48339-2', 5);
-
-/* EMPRUNT 6 */
-INSERT INTO emprunter VALUES ( 2, '978-2-340-01660-6', 6);
-
-/* EMPRUNT 7 */
-INSERT INTO emprunter VALUES ( 8, '2-86967-579-8', 7);
-INSERT INTO emprunter VALUES ( 8, '978-2-340-01660-6', 7);
-
-/* EMPRUNT 8 */
-INSERT INTO emprunter VALUES ( 9, '2-86967-579-8', 8);
-
-/* EMPRUNT 9 */
-INSERT INTO emprunter VALUES ( 10, '2-279-41041-9', 9);
-INSERT INTO emprunter VALUES ( 10, '978-2-340-01660-6', 9);
-INSERT INTO emprunter VALUES ( 10, '2-279-41041-9', 9);
-
-/* EMPRUNT 10 */
-INSERT INTO emprunter VALUES ( 7, '978-2-913927-65-0', 10);
-
-
-/* ILLUSTRER */
-/* Id personne, id ouvrage */
-
-INSERT INTO illustrer VALUES ( 12, '2-86967-579-8');
-INSERT INTO illustrer VALUES ( 14, '2-86967-579-8');
-INSERT INTO illustrer VALUES ( 13, '978-2-227-48339-2');
-INSERT INTO illustrer VALUES ( 14, '978-2-340-01660-6');
-
-
-/* ECRIRE */
-/* Id personne, id ouvrage */
-
-
+/* REALISE */
 
 
 
