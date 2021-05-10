@@ -94,7 +94,7 @@ CREATE TABLE Emprunt(
 	ID_Bibliothecaire  NUMBER(10,0)  NOT NULL  ,
 	ISBN               NUMBER(32,0)  NOT NULL  ,
 	Date_de_debut      DATE  NOT NULL  ,
-	Date_de_fin        DATE  NOT NULL  ,
+	Date_de_fin        DATE   ,
 	Rendu              NUMBER (1) NOT NULL  ,
 	CONSTRAINT Emprunt_PK PRIMARY KEY (ID_Adherent,ID_Bibliothecaire,ISBN, Date_de_debut),
 	CONSTRAINT CHK_BOOLEAN_Rendu CHECK (Rendu IN (0,1)),
@@ -150,4 +150,40 @@ CREATE OR REPLACE TRIGGER Auteur_ID
 		 select Seq_Autheur_ID.NEXTVAL INTO :NEW.ID from DUAL; 
 	END;
 	/
+	
+	
+CREATE OR REPLACE TRIGGER new_emprunt
+    BEFORE INSERT ON emprunt
+    FOR EACH ROW 
+    DECLARE
+        
+    BEGIN 
+     --indication date de fin (théorique)
+        :NEW.date_de_fin := :NEW.date_de_debut + INTERVAL '14' DAY;
+     --update ouvrage.Encours
+        UPDATE ouvrage
+        SET encours = encours-1
+        WHERE ISBN =: NEW.ISBN;
+     
+    END;
+	/
+	
+	   
+CREATE OR REPLACE TRIGGER retour_emprunt
+    BEFORE UPDATE ON Emprunt
+    FOR EACH ROW 
+    BEGIN 
+        IF : NEW.rendu = 1 THEN
+		--indication date de rendu ( = edit date de fin)
+			:NEW.date_de_fin := sysdate;
+        -- update encours
+            UPDATE ouvrage
+            SET encours = encours+1
+            WHERE ISBN =: NEW.ISBN;
+        END IF;
+    END;
+    /    
+    
+
+    
 	

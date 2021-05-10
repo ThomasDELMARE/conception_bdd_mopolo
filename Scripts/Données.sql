@@ -375,10 +375,27 @@ INSERT INTO Realise VALUES (2869675798, 14, 'illustre');
 
 /* EMPRUNT */
 
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (1,1,2869675798, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (2,1,2869675798, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (2,1,9781470887131, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (2,1,9782253161189, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (3,2,9782253005629, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (3,2,2869675798, sysdate, 0);
+INSERT INTO Emprunt (id_adherent, ID_Bibliothecaire, ISBN, date_de_debut, rendu) VALUES (4,3,9782253006282, sysdate, 0);
 
 
+UPDATE Emprunt
+SET rendu = 1
+WHERE ISBN = 2869675798 AND id_adherent = 1;
 
+UPDATE Emprunt
+SET rendu = 1
+WHERE ISBN = 9781470887131 AND id_adherent = 2;
 
+UPDATE Emprunt
+SET rendu = 1
+WHERE ISBN = 9782253161189 AND id_adherent = 2;
 
-
-
+UPDATE Emprunt
+SET rendu = 1
+WHERE ISBN = 9782253005629 AND id_adherent = 3;
