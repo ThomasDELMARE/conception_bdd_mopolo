@@ -136,9 +136,9 @@ DELETE FROM OUVRAGE WHERE ISBN = 9781470887131;
 -- 2 Table
 -- Suppression des adhérents n'ayant jamais emprunté
 DELETE FROM ADHERENT WHERE ID NOT IN (
-    SELECT ID FROM EMPRUNT);
+    SELECT ID_Adherent FROM EMPRUNT);
 -- Suppression des ouvrages de la classification Esthétique
-DELETE OUVRAGE WHERE TAG IN (
+DELETE FROM OUVRAGE WHERE TAG IN (
     SELECT TAG FROM CLASSIFICATION WHERE LIBELLE = 'Esthétique');
 
 -- 3 Table
@@ -159,7 +159,7 @@ WHERE ID = 1;
 -- Mise à jour de la biographie de Victor Hugo
 UPDATE AUTEUR
 SET BIO = 'Lorem Ipsum Sit Dolor Amet'
-WHERE UPPER(NAME) = 'HUGO' AND UPPER(PRENOM) = 'VICTOR';
+WHERE UPPER(NOM) = 'HUGO' AND UPPER(PRENOM) = 'VICTOR';
 
 -- 2 Table
 
