@@ -123,3 +123,74 @@ left join realise r on o.nom = r.nom
 where o.nom = 'Hachette'
 group by o.titre
 having count(o.titre)>2;
+
+
+--- Requêtes de supression
+-- 1 Table
+
+-- Suppression d'un adhérent via son ID
+DELETE FROM ADHERENT WHERE ID = 11;
+-- Suppression d'un ouvrage via son ISBN
+DELETE FROM OUVRAGE WHERE ISBN = 9781470887131;
+
+-- 2 Table
+-- Suppression des adhérents n'ayant jamais emprunté
+DELETE FROM ADHERENT WHERE ID NOT IN (
+    SELECT ID FROM EMPRUNT);
+-- Suppression des ouvrages de la classification Esthétique
+DELETE OUVRAGE WHERE TAG IN (
+    SELECT TAG FROM CLASSIFICATION WHERE LIBELLE = 'Esthétique');
+
+-- 3 Table
+-- Suppression de tout les ouvrages d'un auteur
+DELETE FROM OUVRAGE WHERE ISBN IN (
+    SELECT ISBN FROM REALISE WHERE ID_AUTEUR IN (
+        SELECT ID FROM AUTEUR WHERE UPPER(NOM) = 'HUGO' AND UPPER(PRENOM) = 'VICTOR'));
+
+
+-- Requête de mise à jour
+-- 1 Table
+
+-- Mise à jour du numéro de téléphone d'un adhérent
+UPDATE ADHERENT
+SET TELEPHONE = '0663377889'
+WHERE ID = 1;
+
+-- Mise à jour de la biographie de Victor Hugo
+UPDATE AUTEUR
+SET BIO = 'Lorem Ipsum Sit Dolor Amet'
+WHERE UPPER(NAME) = 'HUGO' AND UPPER(PRENOM) = 'VICTOR';
+
+-- 2 Table
+
+-- Un adhérent du nom de 'Hunt' rend tout ses livres
+UPDATE Emprunt
+SET Rendu = 1
+WHERE Emprunt.ID_Adherent IN
+    (
+        SELECT ID
+        FROM ADHERENT
+        WHERE NOM = 'Hunt');
+
+-- Tout les ouvrages nommés 'Les Misérables' sont rendus
+UPDATE emprunt
+SET Rendu = 1
+WHERE emprunt.ISBN IN
+    (
+        SELECT ISBN
+        FROM OUVRAGE
+        WHERE Titre = 'Les Misérables');
+        
+--- 3 Table
+UPDATE emprunt
+SET Rendu = 1
+WHERE emprunt.ISBN IN
+    (
+        SELECT ISBN
+        FROM ouvrage 
+        WHERE titre = 'Les Misérables' AND ouvrage.nom_editeur IN 
+        (
+            SELECT nom
+            FROM editeur
+            WHERE nom = 'Galliamard'
+        ));
