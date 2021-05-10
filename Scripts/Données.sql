@@ -321,7 +321,7 @@ INSERT INTO ouvrage VALUES ( '9782227483392', 'Voir les jeux vidéo : perception
 INSERT INTO ouvrage VALUES ( '9782130603719', 'Les écoutes téléphoniques', 'E-book', 'Numérique', 'Français', '2010-01-01', true, 8, 'QB');
 INSERT INTO ouvrage VALUES ( '9782247191482', 'Intelligence artificielle', 'E-book', 'Numérique', 'Français', '2019-01-01', true, 9, 'QB');
 INSERT INTO ouvrage VALUES ( '17674883', 'L Essentiel de la Moto', 'Journal', 'Numérique', 'Français', '2011-01-01', true, 10, 'TK');
-
+INSERT INTO ouvrage VALUES (9781470887131, 'Les Misérables', 2012, 'Française', 'Poche', 3, 'Les Misérables est un roman de Victor Hugo publié en 1862. Il a donné lieu à de nombreuses adaptations, au cinéma et sur de nombreux autres supports. Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle, l''auteur s''attache plus particulièrement au destin du bagnard Jean Valjean. C''est un roman historique, social et philosophique dans lequel on retrouve les idéaux du romantisme et ceux de Victor Hugo concernant la nature humaine.', NULL, 1, 'PN', 'Galliamard');
 
 
 /* EMPRUNT */
