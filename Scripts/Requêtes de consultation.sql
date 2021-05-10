@@ -11,7 +11,7 @@
 
 -- Pour chaque classification, afficher les ouvrages avec son titre, sa description,  
 -- sa couverture, son année de parution dont la langue n'est pas anglais
-select titre, description, couverture, annee_de_parution, tag
+select titre, description, couverture, annee_de_parution
 from ouvrage
 where langue != 'Anglais';
 
@@ -21,22 +21,20 @@ select titre, description, couverture, edition, annee_de_parution
 from ouvrage
 order by annee_de_parution DESC;
 
--- Quels sont les bibliothecaires qui ont un nom qui termine par un "I" 
--- ou dont le début se prononce "GO" ? 
+-- Quels sont les bibliothecaires qui ont un nom dont le début se prononce "KAL" ? 
 select *
 from bibliothecaire
-where nom LIKE '%I' 
-	OR SOUNDEX(nom) = SOUNDEX('GO');
+where SOUNDEX(nom) = SOUNDEX('CAL');
 
 -- Afficher les ouvrages qui sont empruntés
 select *
 from emprunt
-where rendu = FALSE;
+where rendu = 0;
 	
 -- Quels sont les adhérents de moins de 30 ans ?
-select *, datediff(YY,date_de_naissance,getdate()) as age
-from adherent
-where age < 30;
+SELECT ADHERENT.*,  ROUND((SYSDATE - date_de_naissance)/365) AS age
+FROM ADHERENT
+WHERE ROUND((SYSDATE - date_de_naissance)/365) < 30;
 
 
 
@@ -54,7 +52,7 @@ where e.ID_bibliothecaire = 2;
 select b.*
 from bibliothecaire b
 inner join emprunt e on b.id = e.id_bibliothecaire
-where e.date_de_debut = '2003/07/02';
+where e.date_de_debut = to_date('10/05/21','DD/MM/YY');
 
 -- Donner le nombre de livres réalisés par auteur et les trier par ordre decroissant 
 select r.nom, count(o.titre) as NombreLivres
@@ -88,7 +86,7 @@ select r.*
 from realise r 
 inner join ouvrage o on r.ISBN = o.ISBN
 inner join emprunt e on o.ISBN = e.ISBN
-where e.rendu = FALSE;
+where e.rendu = 0;
 group by r.nom
 
 -- trouver les adhérents qui ont le même nom qu'un auteur
@@ -114,7 +112,7 @@ from ouvrage o , auteurs, emprunteurs, emprunts
 inner join emprunt e on o.ISBN = e.ISBN
 left join adherent ad on e.ID = ad.ID
 right join realise r on o.ISBN = r.ISBN
-where e.rendu = FALSE
+where e.rendu = 0
 order by o.titre;
 
 -- Afficher les livres qui ont été emprunté au moins 2 fois, ayant pour l'éditeur Hachette et afficher le nom de l'auteur
