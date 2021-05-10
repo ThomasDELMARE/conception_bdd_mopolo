@@ -75,7 +75,7 @@ PROCEDURE editeurModifierTelephoneByNom(nomEditeur IN varchar2, nouveauTelephone
 
 BEGIN 
 	UPDATE EDITEUR
-	SET téléphone = nouveauTelephone
+	SET telephone = nouveauTelephone
 	WHERE nom = nomEditeur;
 	
 	IF SQL%ROWCOUNT = 0 THEN
@@ -88,7 +88,7 @@ BEGIN
 		raise;
 	WHEN OTHERS THEN
 		raise;
-end;
+END;
 
 -- UPDATE 2
 PROCEDURE editeurModifierEmailByNom(nomEditeur IN varchar2, nouvelEmail IN varchar2) IS
@@ -229,6 +229,14 @@ END pk_editeur;
 
 
 
+
+
+
+
+
+-- VERIFICATION DES EDITEURS AVANT AJOUT
+SELECT nom FROM editeur;
+
 -- TEST DE LA FONCTION editeurInserer
 SET serveroutput ON
 
@@ -264,6 +272,10 @@ END;
 -- VERIFICATION DE L AJOUT
 SELECT nom FROM editeur;
 
+
+
+
+
 -- TEST DE LA FONCTION editeurSupprimer
 set serveroutput on
 
@@ -293,6 +305,10 @@ end;
 
 -- VERIFICATION DE LA SUPPRESSION
 SELECT nom FROM editeur;
+
+
+
+
 
 -- TEST DE LA FONCTION editeurModifierTelephoneByNom
 SET serveroutput ON;
@@ -327,6 +343,10 @@ END;
 -- VERIFIER LE NOUVEAU NUMERO DE TELEPHONE DE L EDITEUR
 SELECT telephone FROM editeur WHERE nom= 'Hachette';
 
+
+
+
+
 -- TEST DE LA FONCTION editeurModifierEmailByNom
 SET serveroutput ON;
 
@@ -360,6 +380,10 @@ END;
 -- VERIFIER LE NOUVEL EMAIL DE L EDITEUR
 SELECT email FROM editeur WHERE nom= 'Hachette';
 
+
+
+
+
 -- TEST DE LA FONCTION editeurLister
 SET serveroutput ON;
 
@@ -376,7 +400,7 @@ BEGIN
 		EXIT WHEN listeEditeurs%notfound;
 		nbEditeur:=nbEditeur+1;
 		
-		-- Affichier les informations sur le pilote extrait du curseur
+		-- Afficher les informations sur l'éditeur du curseur
 		DBMS_OUTPUT.PUT_LINE('Nom de l''éditeur            ='|| ligneEditeur.nom);
 		DBMS_OUTPUT.PUT_LINE('Téléphone de l''éditeur      ='|| lignePilote.plnom); 
 		DBMS_OUTPUT.PUT_LINE('Email de l''éditeur          ='|| lignePilote.adr); 
@@ -401,6 +425,10 @@ BEGIN
 
 END;
 /
+
+
+
+
 
 -- TEST DE LA FONCTION editeurTotal
 SET serveroutput ON;
@@ -437,6 +465,10 @@ BEGIN
 
 END;
 /
+
+
+
+
 
 -- TEST DE LA FONCTION editeurTrierByAnneeParution
 SET serveroutput ON;
@@ -486,6 +518,10 @@ BEGIN
 END;
 /
 
+
+
+
+
 -- TEST DE LA FONCTION editeurTrierByTitreASC
 SET serveroutput ON;
 
@@ -532,6 +568,10 @@ BEGIN
 
 END;
 /
+
+
+
+
 
 -- TEST DE LA FONCTION editeurTrierByTitreDESC
 SET serveroutput ON;
