@@ -95,7 +95,8 @@ select ad.*
 from adherent ad
 inner join emprunt e on ad.id = e.id_adherent
 inner join ouvrage o on e.ISBN = o.ISBN
-inner join realise r on o.ISBN = r.ISBN;
+inner join realise r on o.ISBN = r.ISBN
+inner join auteur a on r.id_auteur = a.id
 where ad.nom = a.nom
 order by ad.nom;
 
@@ -104,23 +105,24 @@ select b.nom, b.prenom, e.*, o.titre
 from emprunt e
 left join bibliothecaire b on e.ID_bibliothecaire = b.ID
 inner join ouvrage o on e.ISBN = o.ISBN
-where date_de_debut = '2020/10/05'
+where TO_DATE(date_de_debut, 'DD-MM-YYYY') = TO_DATE('2020/10/05','DD-MM-YYYY')
 group by b.nom;
 
 -- Affichez le titre et l'auteur des ouvrages empruntés ainsi que du nom de son adhérent ayant l'ouvrage
 select o.titre, r.id_auteur, ad.nom
 from ouvrage o
 inner join emprunt e on o.ISBN = e.ISBN
-left join adherent ad on e.ID = ad.ID
+left join adherent ad on e.ID_adherent = ad.ID
 right join realise r on o.ISBN = r.ISBN
 where e.rendu = 0
 order by o.titre;
 
 -- Afficher les livres qui ont été emprunté au moins 2 fois, ayant pour l'éditeur Hachette et afficher le nom de l'auteur
-select o.titre, count(o.titre), r.nom
+select o.titre, count(o.titre), a.nom
 from emprunt e
 inner join ouvrage o on e.ISBN = o.ISBN
-left join realise r on o.nom = r.nom
-where o.nom = 'Hachette'
+inner join realise r on o.ISBN = r.ISBN
+left join auteur a on r.id_auteur = a.id
+where o.nom_editeur = 'Hachette'
 group by o.titre
 having count(o.titre)>2;
