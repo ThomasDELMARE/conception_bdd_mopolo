@@ -34,7 +34,7 @@ where rendu = 0;
 -- Quels sont les adhérents de moins de 30 ans ?
 SELECT ADHERENT.*,  ROUND((SYSDATE - date_de_naissance)/365) AS age
 FROM ADHERENT
-WHERE age < 30;
+WHERE ROUND((SYSDATE - date_de_naissance)/365) < 30;
 
 
 
@@ -69,12 +69,26 @@ left join emprunt e ON o.ISBN = e.ISBN
 where langue = 'Française' or langue = 'Espagnole'
 order by titre ASC;
 
--- le nombre d'emprunts des livres dont l'éditeur est 'Larousse' 
-select o.*, count(e.id_adherent) as NombreDeLivres
-from emprunt e
-inner join ouvrage o on e.ISBN = o.ISBN
-where nom_editeur = 'Larousse'
-group by titre;
+-- la liste des livres dont l'éditeur est 'Hachette' et qui est emprunté
+select *
+from ouvrage o 
+inner join emprunt e on o.ISBN = e.ISBN
+where nom_editeur = 'Hachette' and rendu = 0;
+
+-- Nombre de livre par auteur
+SELECT a.nom, COUNT(r.id_auteur) as nbLivre
+FROM auteur a INNER JOIN realise r ON a.id = r.id_auteur
+GROUP BY a.nom;
+
+--Les livres qui n'ont pas été empruntés
+SELECT ouvrage.ISBN, emprunt.ISBN AS valid
+FROM ouvrage LEFT JOIN emprunt ON ouvrage.ISBN = emprunt.ISBN
+WHERE emprunt.ISBN IS NULL
+ORDER BY ouvrage.ISBN ASC;
+
+--les bibliothecaires ayant validé un emprunt
+SELECT DISTINCT Bibliothecaire.*
+FROM bibliothecaire RIGHT JOIN emprunt ON emprunt.id_bibliothecaire = bibliothecaire.id;
 
 
 
@@ -82,13 +96,12 @@ group by titre;
 
 
 -- afficher toutes les informations des auteurs dont les ouvrages sont actuellement empruntés
-select r.*
+select a.*
 from realise r 
 inner join ouvrage o on r.ISBN = o.ISBN
 inner join emprunt e on o.ISBN = e.ISBN
 inner join auteur a on r.id_auteur = a.id
 where e.rendu = 0;
-group by r.id_auteur
 
 -- trouver les adhérents qui ont le même nom qu'un auteur
 select ad.*
@@ -105,8 +118,7 @@ select b.nom, b.prenom, e.*, o.titre
 from emprunt e
 left join bibliothecaire b on e.ID_bibliothecaire = b.ID
 inner join ouvrage o on e.ISBN = o.ISBN
-where TO_DATE(date_de_debut, 'DD-MM-YYYY') = TO_DATE('2020/10/05','DD-MM-YYYY')
-group by b.nom;
+where TO_DATE(date_de_debut, 'DD-MM-YYYY') = TO_DATE(sysdate,'DD-MM-YYYY');
 
 -- Affichez le titre et l'auteur des ouvrages empruntés ainsi que du nom de son adhérent ayant l'ouvrage
 select o.titre, r.id_auteur, ad.nom
@@ -117,12 +129,22 @@ right join realise r on o.ISBN = r.ISBN
 where e.rendu = 0
 order by o.titre;
 
--- Afficher les livres qui ont été emprunté au moins 2 fois, ayant pour l'éditeur Hachette et afficher le nom de l'auteur
-select o.titre, count(o.titre), a.nom
-from emprunt e
-inner join ouvrage o on e.ISBN = o.ISBN
-inner join realise r on o.ISBN = r.ISBN
+-- Compter le nombre d'ouvrages par auteur ayant pour l'éditeur Hachette
+select a.nom, count(o.titre) as NombreLivres
+from ouvrage o
+inner join realise r ON o.ISBN = r.ISBN
+inner join emprunt e on e.ISBN = o.ISBN
 left join auteur a on r.id_auteur = a.id
 where o.nom_editeur = 'Hachette'
-group by o.titre
-having count(o.titre)>2;
+group by a.nom
+order by NombreLivres ASC;
+
+-- trouver les adhérents qui ont le même nom qu'un auteur
+select ad.*
+from adherent ad
+inner join emprunt e on ad.id = e.id_adherent
+inner join ouvrage o on e.ISBN = o.ISBN
+inner join realise r on o.ISBN = r.ISBN
+inner join auteur a on r.id_auteur = a.id
+where ad.nom = a.nom
+order by ad.nom;
