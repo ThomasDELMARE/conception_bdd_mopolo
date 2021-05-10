@@ -63,6 +63,7 @@ PROCEDURE editeurSupprimer(nomASupprimer IN varchar2) IS
 BEGIN 
 
 DELETE FROM EDITEUR WHERE editeur.nom = nomASupprimer;
+DELETE FROM OUVRAGE WHERE ouvrage.nom_editeur =  nomASupprimer;
 
 EXCEPTION
 	
