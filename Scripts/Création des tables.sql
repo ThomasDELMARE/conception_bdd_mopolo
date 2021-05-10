@@ -68,11 +68,11 @@ CREATE TABLE Classification(
 -- Table: Ouvrage
 ------------------------------------------------------------
 CREATE TABLE Ouvrage(
-	ISBN               NUMBER(10,0)  NOT NULL  ,
+	ISBN               NUMBER(32,0)  NOT NULL  ,
 	Titre              VARCHAR2 (256) NOT NULL  ,
 	Annee_de_parution  NUMBER(4,0)   ,
 	Langue             VARCHAR2 (32) NOT NULL  ,
-	Format             VARCHAR2 (32) NOT NULL CONSTRAINT ouvrage_check_format CHECK (Format IN ('Broché','Relié','Numérique','Audio')) ,
+	Format             VARCHAR2 (32) NOT NULL CONSTRAINT ouvrage_check_format CHECK (Format IN ('Broché','Relié','Poche','Numérique','Audio')) ,
 	Edition            NUMBER(10,0)  NOT NULL  ,
 	Description        CLOB   ,
 	Couverture         BLOB   ,
