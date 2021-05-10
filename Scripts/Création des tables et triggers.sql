@@ -111,7 +111,7 @@ CREATE TABLE Emprunt(
 CREATE TABLE Realise(
 	ISBN               NUMBER(32,0)  NOT NULL  ,
 	ID_Auteur          NUMBER(10,0)  NOT NULL  ,
-	Role			   VARCHAR2 (32) NOT NULL  CONSTRAINT realise_check_role CHECK (Role IN ('ecrire','illustre','participe')) ,
+	Role			   VARCHAR2 (32) NOT NULL  CONSTRAINT realise_check_role CHECK (Role IN ('ecrire','illustrer','participer')) ,
 	CONSTRAINT Realise_PK PRIMARY KEY (ISBN,ID_Auteur)
 
 	,CONSTRAINT Realise_Ouvrage_FK FOREIGN KEY (ISBN) REFERENCES Ouvrage(ISBN)
