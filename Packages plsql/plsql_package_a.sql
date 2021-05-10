@@ -20,20 +20,20 @@ pragma exception_init(no_data_updated, -20001);
 
 mess  varchar2(1000);
 
-PROCEDURE editeurInserer(editeur IN editeur%rowtype);
+procedure editeurInserer(editeur IN editeur%rowtype);
 
-PROCEDURE editeurSupprimer(nomASupprimer IN varchar2);
+procedure editeurSupprimer(nomASupprimer IN varchar2);
 
-PROCEDURE editeurModifierTelephoneByNom(nomEditeur IN varchar2, nouveauTelephone IN varchar2);
-PROCEDURE editeurModifierEmailByNom(nomEditeur IN varchar2, nouvelEmail IN varchar2);
+procedure editeurModifierTelephoneByNom(nomEditeur IN varchar2, nouveauTelephone IN varchar2);
+procedure editeurModifierEmailByNom(nomEditeur IN varchar2, nouvelEmail IN varchar2);
 
-FUNCTION editeurLister() RETURN pk_editeur.refcursorType;
+function editeurLister RETURN pk_editeur.refcursorType;
 
-FUNCTION editeurTotal() RETURN number;
+function editeurTotal RETURN pk_editeur.refcursorType;
 
-FUNCTION editeurTrierByAnneeParution() RETURN pk_editeur.refcursorType;
-FUNCTION editeurTrierByTitreASC() RETURN pk_editeur.refcursorType;
-FUNCTION editeurTrierByTitreDESC() RETURN pk_editeur.refcursorType;
+function editeurTrierByAnneeParution RETURN pk_editeur.refcursorType;
+function editeurTrierByTitreASC RETURN pk_editeur.refcursorType;
+function editeurTrierByTitreDESC RETURN pk_editeur.refcursorType;
 
 end pk_editeur;
 /
@@ -46,8 +46,7 @@ CREATE OR REPLACE PACKAGE BODY pk_editeur IS
 PROCEDURE editeurInserer(editeur IN editeur%ROWTYPE) IS 
 
 BEGIN 
-
-INSERT INTO EDITEUR VALUES (editeur.nom, editeur.téléphone, editeur.email, editeur.adresse);
+    insert into EDITEUR values (editeur.nom, editeur.telephone, editeur.email, editeur.adresse);
 
 EXCEPTION
 	
@@ -55,7 +54,8 @@ EXCEPTION
 		raise;	
 	WHEN OTHERS THEN
 		raise;
-END;
+end;
+
 
 -- DELETE
 PROCEDURE editeurSupprimer(nomASupprimer IN varchar2) IS 
@@ -69,6 +69,8 @@ EXCEPTION
 	WHEN OTHERS THEN
 		raise;
 END;
+
+
 
 -- UPDATE 1
 PROCEDURE editeurModifierTelephoneByNom(nomEditeur IN varchar2, nouveauTelephone IN varchar2) IS
@@ -111,7 +113,7 @@ BEGIN
 end;
 
 -- LISTER
-FUNCTION editeurLister() RETURN pk_editeur.refCursorType IS
+FUNCTION editeurLister RETURN pk_editeur.refCursorType IS
 
 cursEmp pk_editeur.refCursorType;
 
@@ -119,7 +121,7 @@ BEGIN
 
 	OPEN cursEmp FOR
 	
-	SELECT * 
+	SELECT editeur.* 
 	FROM editeur;
 
 	RETURN cursEmp ;
@@ -134,13 +136,26 @@ EXCEPTION
 END;
 
 -- TOTAL
-FUNCTION editeurTotal() RETURN number IS
+FUNCTION editeurTotal RETURN pk_editeur.refcursorType IS
+
+    cursEmp pk_editeur.refCursorType;
+	ligneEditeur editeur%rowtype;
+	nbEditeur number:= 0;
 
 BEGIN
-	SELECT COUNT(nom) AS total_editeur
-	FROM editeur;
+    OPEN cursEmp FOR
 
-	RETURN total_editeur;
+	SELECT nom AS total
+	FROM editeur;
+    
+    LOOP 
+		FETCH listeEditeurs INTO ligneEditeur;
+		EXIT WHEN listeEditeurs%notfound;
+		nbEditeur:=nbEditeur+1;
+	END LOOP;
+    
+
+	RETURN nbEditeur;
 
 EXCEPTION 
 	WHEN NO_DATA_FOUND THEN
@@ -148,10 +163,12 @@ EXCEPTION
 	WHEN OTHERS THEN
 		raise;
 		
-END;
+END editeurTotal;
 
 -- TRI 1
-FUNCTION editeurTrierByAnneeParution() RETURN pk_editeur.refcursorType IS
+FUNCTION editeurTrierByAnneeParution RETURN pk_editeur.refcursorType IS
+
+cursEmp pk_editeur.refcursorType;
 
 BEGIN
 
@@ -159,7 +176,7 @@ BEGIN
 	
 	SELECT ouvrage.* 
 	FROM editeur, ouvrage
-	WHERE editeur.nom = ouvrage.nom
+	WHERE editeur.nom = ouvrage.nom_editeur
 	ORDER BY 'année de parution';
 
 	RETURN cursEmp ;
@@ -175,7 +192,9 @@ EXCEPTION
 END;
 
 -- TRI 2
-FUNCTION editeurTrierByTitreASC() RETURN pk_editeur.refcursorType IS
+FUNCTION editeurTrierByTitreASC RETURN pk_editeur.refcursorType IS
+
+cursEmp pk_editeur.refcursorType;
 
 BEGIN
 
@@ -183,7 +202,7 @@ BEGIN
 	
 	SELECT ouvrage.* 
 	FROM editeur, ouvrage
-	WHERE editeur.nom = ouvrage.nom
+	WHERE editeur.nom = ouvrage.nom_editeur
 	ORDER BY ouvrage.titre ASC;
 
 	RETURN cursEmp ;
@@ -199,7 +218,9 @@ EXCEPTION
 END;
 
 -- TRI 3
-FUNCTION editeurTrierByTitreDESC() RETURN pk_editeur.refcursorType IS
+FUNCTION editeurTrierByTitreDESC RETURN pk_editeur.refcursorType IS
+
+cursEmp pk_editeur.refcursorType;
 
 BEGIN
 
@@ -207,7 +228,7 @@ BEGIN
 	
 	SELECT ouvrage.* 
 	FROM editeur, ouvrage
-	WHERE editeur.nom = ouvrage.nom
+	WHERE editeur.nom = ouvrage.nom_editeur
 	ORDER BY ouvrage.titre DESC;
 
 	RETURN cursEmp ;
@@ -238,21 +259,19 @@ END pk_editeur;
 SELECT nom FROM editeur;
 
 -- TEST DE LA FONCTION editeurInserer
-SET serveroutput ON
-
 DECLARE
-editeur  editeur%ROWTYPE;
+    editeurAInserer editeur%rowtype;
 
 BEGIN
 
-	editeur.nom := 'L''Arche';
-	editeur.téléphone := 0606070708;
-	editeur.email := 'hachette@gmail.com';
-	editeur.adresse :='90 impasse de l''olivette';
+	editeurAInserer.nom := 'L''Arche';
+	editeurAInserer.telephone := '0606070708';
+	editeurAInserer.email := 'hachette@gmail.com';
+	editeurAInserer.adresse :='90 impasse de l''olivette';
 	 
-	pk_editeur.editeurInserer(editeur);
+	pk_editeur.editeurInserer(editeurAInserer);
 	 
-	DBMS_OUTPUT.PUT_LINE('L''éditeur avec le nom '|| editeur.nom || ' a été inséré.');
+	DBMS_OUTPUT.PUT_LINE('L''éditeur avec le nom '|| editeurAInserer.nom || ' a été inséré.');
  
 EXCEPTION 
 
@@ -286,7 +305,7 @@ BEGIN
 
 	pk_editeur.editeurSupprimer(nomASupprimer);
 
-	DBMS_OUTPUT.PUT_LINE('L''éditeur avec le nom '|| editeur.nom || ' a été supprimé.');
+	DBMS_OUTPUT.PUT_LINE('L''éditeur avec le nom '|| nomASupprimer || ' a été supprimé.');
  
 EXCEPTION 
 
@@ -401,10 +420,10 @@ BEGIN
 		nbEditeur:=nbEditeur+1;
 		
 		-- Afficher les informations sur l'éditeur du curseur
-		DBMS_OUTPUT.PUT_LINE('Nom de l''éditeur            ='|| ligneEditeur.nom);
-		DBMS_OUTPUT.PUT_LINE('Téléphone de l''éditeur      ='|| lignePilote.plnom); 
-		DBMS_OUTPUT.PUT_LINE('Email de l''éditeur          ='|| lignePilote.adr); 
-		DBMS_OUTPUT.PUT_LINE('Adresse de l''éditeur        ='|| lignePilote.sal);
+		DBMS_OUTPUT.PUT_LINE('Nom de l''éditeur            = '|| ligneEditeur.nom);
+		DBMS_OUTPUT.PUT_LINE('Téléphone de l''éditeur      = '|| ligneEditeur.telephone); 
+		DBMS_OUTPUT.PUT_LINE('Email de l''éditeur          = '|| ligneEditeur.email); 
+		DBMS_OUTPUT.PUT_LINE('Adresse de l''éditeur        = '|| ligneEditeur.adresse);
 
 	END LOOP;
 	
@@ -435,16 +454,11 @@ SET serveroutput ON;
 
 DECLARE
 	listeEditeurs pk_editeur.refCursorType;
-	nbEditeur number:= 0;
 BEGIN
 
-	listeEditeurs:= pk_editeur.editeurTotal() ;
+	nbEditeur := pk_editeur.editeurTotal() ;
 
-	LOOP 
-		FETCH listeEditeurs INTO ligneEditeur;
-		EXIT WHEN listeEditeurs%notfound;
-		nbEditeur:=nbEditeur+1;
-	END LOOP;
+	
 	
 	-- Si le curseur est vide
 	IF nbEditeur = 0 then
