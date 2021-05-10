@@ -92,7 +92,7 @@ CREATE TABLE Ouvrage(
 CREATE TABLE Emprunt(
 	ID_Adherent        NUMBER(10,0)  NOT NULL  ,
 	ID_Bibliothecaire  NUMBER(10,0)  NOT NULL  ,
-	ISBN               NUMBER(10,0)  NOT NULL  ,
+	ISBN               NUMBER(32,0)  NOT NULL  ,
 	Date_de_debut      DATE  NOT NULL  ,
 	Date_de_fin        DATE  NOT NULL  ,
 	Rendu              NUMBER (1) NOT NULL  ,
@@ -108,7 +108,7 @@ CREATE TABLE Emprunt(
 -- Table: Réalise
 ------------------------------------------------------------
 CREATE TABLE Realise(
-	ISBN               NUMBER(10,0)  NOT NULL  ,
+	ISBN               NUMBER(32,0)  NOT NULL  ,
 	ID_Auteur          NUMBER(10,0)  NOT NULL  ,
 	Role			   VARCHAR2 (32) NOT NULL  CONSTRAINT realise_check_role CHECK (Role IN ('ecrire','illustre','participe')) ,
 	CONSTRAINT Realise_PK PRIMARY KEY (ISBN,ID_Auteur)
@@ -150,3 +150,4 @@ CREATE OR REPLACE TRIGGER Auteur_ID
 		 select Seq_Autheur_ID.NEXTVAL INTO :NEW.ID from DUAL; 
 	END;
 	/
+	

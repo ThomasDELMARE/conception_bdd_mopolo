@@ -245,7 +245,7 @@ INSERT INTO classification VALUES ( 'Z', 'Bibliographie - Bibliothéconomie - So
 
 
 /* AUTEUR */
-
+--ecrivain
 INSERT INTO auteur VALUES ( NULL, 'Hugo', 'Victor', TO_DATE('1802-02-26','YYYY-MM-DD'), 'Française', 'Ecrivain français (1802-1885) chef de file du romantisme français. Victor Hugo est un poète, dramaturge, prosateur et dessinateur romantique français, né le 26 février 1802 (7 ventôse an X selon le calendrier républicain encore en vigueur) à Besançon et mort le 22 mai 1885 à Paris. Il est considéré comme l un des plus importants écrivains de langue française. Il est aussi une personnalité politique et un intellectuel engagé qui a eu un rôle idéologique majeur et occupe une place marquante dans l histoire des lettres françaises au XIXe siècle, dans des genres et des domaines d une remarquable variété. Au théâtre, Victor Hugo se manifeste comme un des chefs de file du Romantisme français lorsqu il expose sa théorie du drame romantique dans les préfaces qui introduisent Cromwell en 1827, puis Hernani en 1830 qui sont de véritables manifestes, puis par ses autres œuvres dramatiques : Ruy Blas en 1838, mais aussi Lucrèce Borgia et Le Roi s amuse. Victor Hugo est aussi un poète lyrique avec des recueils comme Odes et Ballades (1826), Les Feuilles d automne (1831) ou Les Contemplations (1856), mais il est aussi poète engagé contre Napoléon III dans Les Châtiments (1853) ou encore poète épique avec La Légende des siècles (1859 et 1877).Ses romans rencontrent également un grand succès populaire, avec notamment Notre-Dame de Paris (1831), et plus encore avec Les Misérables (1862).');
 INSERT INTO auteur VALUES ( NULL, 'Colucci', 'Michel', TO_DATE('1944-10-28','YYYY-MM-DD'), 'Française', 'Michel Colucci, dit Coluche est un humoriste et acteur français (1944-1986) fondateur des Restos du coeur. Fils d un immigré italien et d une Française, Michel Colucci grandit à Montrouge. Il adopte le pseudonyme « Coluche » à l âge de 26 ans, au tout début de sa carrière. Revendiquant sa grossièreté mais, selon lui, « sans jamais tomber dans la vulgarité », Coluche donne très tôt un style nouveau et sarcastique par sa liberté d expression, au music-hall, en s attaquant notamment aux tabous, puis aux valeurs morales et politiques de la société contemporaine. En 1975, il devient célèbre en parodiant un jeu télévisé : Le Schmilblick.');
 INSERT INTO auteur VALUES ( NULL, 'Littell', 'Jonathan', TO_DATE('1967-10-10','YYYY-MM-DD'), 'Américaine', 'Jonathan Littell est un écrivain et romancier franco-américain né le 10 octobre 1967 à New York. Né d un père américain mais scolarisé en France, il maîtrise très tôt l anglais et le français, qui bercent son enfance. Jeune homme, Jonathan Littell se montre très sensible au sort réservé aux populations en guerre. Dans les années 90,  il s engage dans l action humanitaire et notamment pour Action contre la Faim, pour laquelle il travaillera 7 ans. Jonathan Littell se fait connaître du grand public en publiant son roman Les Bienveillantes en août 2006. Cette œuvre, dans laquelle il met en scène l histoire de Maximilien Aue, juriste intransigeant au parcours complexe enrôlé dans la SS, obtient un succès populaire majeur récompensé des prix Goncourt et Grand Prix du roman de l Académie française 2006. Avec 1390 pages, Les Bienveillantes est une œuvre monumentale intense, éprouvante… et entièrement écrite en français.');
@@ -256,6 +256,7 @@ INSERT INTO auteur VALUES ( NULL, 'Semprún', 'Jorge', TO_DATE('1923-12-10','YYY
 INSERT INTO auteur VALUES ( NULL, 'Makine', 'Andreï', TO_DATE('1957-09-10','YYYY-MM-DD'), 'Russe', 'Andreï Makine est un romancier et essayiste russe né le 10 septembre 1957 à Divnogorsk, au cœur de la Sibérie. Suite à la disparition de ses parents probablement déportés, il vit ses premières années à l orphelinat. À l âge de quatre ans, Andreï apprend le français grâce à sa grand-mère d origine française qui s occupe régulièrement de lui, jusqu à devenir bilingue. Dans son roman autofictif Le Testament français, Andreï raconte comment cette grand-mère – Charlotte Lemonnier dans l ouvrage – transmet ses connaissances et lègue la culture de son pays natal à son petit-fils. Comme d autres auteurs étrangers avant lui, Andreï prend ainsi goût à la culture française qu il étudie à l université. Il y rédige une thèse intitulée « Roman sur l enfance dans la littérature française contemporaine », et enseigne également la philologie à l Institut pédagogique de Novgorod où il collabore à la revue Littérature moderne à l étranger. Dans les ouvrages de Makine, les thèmes du bilinguisme et de la double appartenance culturelle sont régulièrement incarnés par des personnages nourris de diverses cultures. Son premier roman, La Fille d un héros de l Union soviétique paru en 1990 est le point de départ d une carrière littéraire avec le français comme langue d écriture. Il écrit également plusieurs livres sous le nom de Gabriel Osmonde dont L Œuvre de l amour et L Alternaissance. Andreï s installe clandestinement en France en 1987 et demandera l asile politique qui lui sera accordé quelques années plus tard. Il a été élu à l Académie française le 3 mars 2016.');
 INSERT INTO auteur VALUES ( NULL, 'Moï', 'Anna', TO_DATE('1955-08-01','YYYY-MM-DD'), 'Vietnamienne', 'Anna Moï – de son vrai nom TRẦN Thiên Nga – est une écrivaine et romancière née le 1er août 1955 à Saïgon, au Vietnam. Elle est issue d une famille plutôt aisée avec une mère enseignante et un père officier qui écrit quelques articles pour la presse locale. Dès la maternelle, elle est scolarisée dans une école francophone et poursuit ses études dans un lycée français au Vietnam. Après avoir obtenu le baccalauréat au lycée français Marie Curie de Saigon, elle part vivre à Paris dans les années 70 où elle étudie l histoire à l université de Nanterre. Lorsqu elle revient vivre à Saïgon dans les années 90, elle commence à rédiger des articles pour un magazine francophone qui traite de la culture vietnamienne. Dès lors, elle commence à écrire en français des nouvelles, puis des romans.');
 INSERT INTO auteur VALUES ( NULL, 'Kundera', 'Milan', TO_DATE('1929-04-01','YYYY-MM-DD'), 'Tchèque', 'Milan Kundera nait en 1929 en Moravie, dans une famille où l art et la culture occupent une place prépondérante. Le jeune Milan s intéresse alors à plusieurs domaines, et suit notamment des études de littérature puis de cinéma. Sa carrière littéraire commence d abord en langue tchèque ; mais très vite, Kundera choisit le français comme langue d écriture… pour des raisons politiques. En effet, Kundera rejette totalement le pacte de Varsovie signé en 1968. Il s exile alors en France pour fuir la censure qui agite la Tchécoslovaquie. En adoptant le français comme langue d écriture, il souhaite signifier la rupture avec un pays dont il déteste le régime en place.');
+--illustrateur
 INSERT INTO auteur VALUES ( NULL, 'Sangho', 'Bang', TO_DATE('2000-06-30','YYYY-MM-DD'), 'Coréenne', 'Graphismes et figures colorés à l allure psychédélique. Voyage spatial aux couleurs éclatantes, ou comment Bang Sangho nous transporte sur sa planète, expression d un monde qui n évoque que l inconscient et où transparaît l imaginaire de l artiste. Sangho Bang, illustrateur coréen a un style très marqué. Il n hésite pas à mêler dans son travail, jeu d encre et digital, nous emmenant à coup sûr, dans un voyage psychédélique aux allures de nouvelles planètes surréalistes, très identifiable. Nos yeux et notre esprit plongent dans les profondeurs imaginaires de la mer, de la terre et d un ciel parsemé de planètes lointaines imaginées par l artiste. Les visages de l artiste sont des cratères qui n hésitent pas à rentrer en éruption comme des volcans. Fait de trous béants, il nous révèle un nouveau monde telles des galaxies fait d humanoïdes maritimes ou robotiques aux couleurs dominantes de vert et de rose. Le rose devient facilement la couleur de l ambivalence, de l entre-deux, du double.  Il donne vie à des molécules de la taille de planètes faites de trous, ces trous qui jouent le rôle de passage d un monde à l autre, “créant une circulation infinie entre ses œuvres tel l univers infini”, reflet certain d images mystiques.');
 INSERT INTO auteur VALUES ( NULL, 'Busc', 'Andy', TO_DATE('1874-04-04','YYYY-MM-DD'), 'Américaine', 'Commémoration de ses voyages travers le monde, fine frontière entre réalité et fiction, voici les illustrations en noires et blancs de l artiste Andy Busc. Busc est un passionné de dessin, une sensibilité qu il exprime depuis toujours, alimentée par une fascination pour les personnages de spectacles tant réels qu imaginaires. On y croise Karl Lagerfeld en compagnie sa chatte Choupette griffée de Chanel, ou encore Daniel Radcliffe posant devant son étoile sur Hollywood Boulevard. Son inspiration lui vient de ses rêves, mais également d éléments venant directement de la pop culture, des médias, ou de ses voyages. On y croise Bart Simpson dans une version réinterprétée par Pablo Picasso, une Hello Kitty absurde qui marche sur la tête, ou encore un Kaonashi, ou Sans-Visage, issu du film d animation “Le Voyage de Chihiro” de Hayao Miyazaki, en compagnie d une charmante paire de fesses. Un univers qui nous montre sa réalité, parfois absurde mais souvent juste.');
 INSERT INTO auteur VALUES ( NULL, 'Enrique', 'Luis', TO_DATE('2002-05-09','YYYY-MM-DD'), 'Espagnole', 'Coloration des rues du monde entier, oscillation entre street art, graff, sculpture et/ou peinture sur toile, retour sur Smithe, un graphiste surréaliste à mi-chemin entre science-fiction et psychédélique pop. C est à l âge de 14 ans que Smithe réalise son premier graff. Il s aperçoit plus tard que l illustration lui permet de vivre de sa passion. Aujourd hui il s intéresse à différents supports dont le dessin, la peinture sur toile mais également la sculpture lui offrant une grande variété de supports pour la création de ses œuvres. Lorsqu il fait des peintures murales, les gens viennent voir, observent le processus, apportent à manger et tapent la discute. Ces deux ambiances très différentes influent sur les créations de l artiste, mais toujours dans un univers surréaliste, basé autour de la déconstruction.');
@@ -322,12 +323,59 @@ INSERT INTO ouvrage VALUES (9782253005599, 'Les Rougon-Macquart, tome 5 : La fau
 INSERT INTO ouvrage VALUES (9782253006282, 'Les Rougon-Macquart, tome 6 : Son Excellence Eugène Rougon', 2003, 'Française', 'Poche', 1, 'Mallarmé, le 18 mars 1876, écrivait à Zola à propos de Son Excellence Eugène Rougon : "Un intérêt profond s''y dissimule admirablement sous le hasard plein de plis et de cassures avec lequel le narrateur d''aujourd''hui doit étoffer sa conception.', NULL, 2, 'PN', 'Editis');
 
 
-/* EMPRUNT */
-
-
 
 
 /* REALISE */
+--ECRIVAIN
+--Victor Hugo 
+INSERT INTO Realise VALUES (9781470887131, 1, 'ecrire');
+INSERT INTO Realise VALUES (9782253161189, 1, 'ecrire');
+INSERT INTO Realise VALUES (9782253003663, 1, 'ecrire');
+INSERT INTO Realise VALUES (9782253005629, 1, 'ecrire');
+INSERT INTO Realise VALUES (9782253005599, 1, 'ecrire');
+INSERT INTO Realise VALUES (9782253006282, 1, 'ecrire');
+-- Colucci Michel
+INSERT INTO Realise VALUES (2869675798, 2, 'ecrire');
+-- Littell Jonathan
+INSERT INTO Realise VALUES (18638260, 3, 'ecrire');
+--Beckett Samuel
+INSERT INTO Realise VALUES (9782247191482, 4, 'ecrire');
+INSERT INTO Realise VALUES (9782130603719, 4, 'ecrire');
+--Ionesco Eugène
+INSERT INTO Realise VALUES (9782340034648, 5, 'ecrire');
+--Kristof Agota
+INSERT INTO Realise VALUES (9782913927650, 6, 'ecrire');
+--Semprún Jorge
+INSERT INTO Realise VALUES (9782227483392, 7, 'ecrire');
+INSERT INTO Realise VALUES (9782130603719, 7, 'ecrire');
+INSERT INTO Realise VALUES (9782247191482, 7, 'ecrire');
+--Makine Andreï
+INSERT INTO Realise VALUES (9782227483392, 8, 'ecrire');
+INSERT INTO Realise VALUES (9782247191482, 8, 'ecrire');
+--Moï Anna
+INSERT INTO Realise VALUES (17674883, 9, 'ecrire');
+
+--ILLUSTRATEUR
+--Sangho Bang
+INSERT INTO Realise VALUES (9782253161189, 11, 'illustre');
+INSERT INTO Realise VALUES (9782253003663, 11, 'illustre');
+INSERT INTO Realise VALUES (9782253005629, 11, 'illustre');
+INSERT INTO Realise VALUES (9782253005599, 11, 'illustre');
+INSERT INTO Realise VALUES (9782253006282, 11, 'illustre');
+--Busc Andy
+INSERT INTO Realise VALUES (9782227483392, 12, 'illustre');
+INSERT INTO Realise VALUES (9782130603719, 12, 'illustre');
+INSERT INTO Realise VALUES (9782247191482, 12, 'illustre');
+--Enrique Luis
+INSERT INTO Realise VALUES (17674883, 13, 'illustre');
+--Eriksson Petra
+INSERT INTO Realise VALUES (18638260, 14, 'illustre');
+INSERT INTO Realise VALUES (2869675798, 14, 'illustre');
+
+
+/* EMPRUNT */
+
+
 
 
 
