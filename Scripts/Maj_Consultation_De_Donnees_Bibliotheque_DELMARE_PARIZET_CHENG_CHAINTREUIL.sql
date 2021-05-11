@@ -151,12 +151,12 @@ DELETE FROM OUVRAGE WHERE ISBN IN (
 -- Requête de mise à jour
 -- 1 Table
 
--- Mise à jour du numéro de téléphone d'un adhérent
+-- Mise à jour du numéro de téléphone d'un adhérent ayant l'ID 1
 UPDATE ADHERENT
 SET TELEPHONE = '0663377889'
 WHERE ID = 1;
 
--- Mise à jour de la biographie de Victor Hugo
+-- Mise à jour de la biographie de l'auteur Victor Hugo
 UPDATE AUTEUR
 SET BIO = 'Lorem Ipsum Sit Dolor Amet'
 WHERE UPPER(NOM) = 'HUGO' AND UPPER(PRENOM) = 'VICTOR';
@@ -182,6 +182,8 @@ WHERE emprunt.ISBN IN
         WHERE Titre = 'Les Misérables');
         
 --- 3 Table
+
+-- Tout les ouvrages nommées 'Les Misérables' de l'éditeur 'Galliamard' sont rendus
 UPDATE emprunt
 SET Rendu = 1
 WHERE emprunt.ISBN IN
